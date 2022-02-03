@@ -1,0 +1,126 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Ew. Alamo Heights PD gave us some nasty data. Here I will try to clean it up
+
+#Upload & Clean
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(lubridate)
+```
+
+```{r}
+raw_2011 <- read_excel("Data/AHPD 2011 Incidents SAEN 10202022.xls", skip = 5) 
+```
+
+
+
+```{r}
+clean_2011 <- raw_2011 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information  
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+  
+ 
