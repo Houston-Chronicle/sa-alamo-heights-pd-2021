@@ -229,8 +229,18 @@ library(lubridate)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmF3XzIwMTEgPC0gcmVhZF9leGNlbChcIkRhdGEvQUhQRCAyMDExIEluY2lkZW50cyBTQUVOIDEwMjAyMDIyLnhsc1wiLCBza2lwID0gNSkgXG5gYGAifQ== -->
-<pre class="r"><code>raw_2011 &lt;- read_excel(&quot;Data/AHPD 2011 Incidents SAEN 10202022.xls&quot;, skip = 5) </code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmF3XzIwMTEgPC0gcmVhZF9leGNlbChcIkRhdGEvQUhQRCAyMDExIEluY2lkZW50cyBTQUVOIDEwMjAyMDIyLnhsc1wiLCBza2lwID0gNSkgXG5yYXdfMjAxMiA8LSByZWFkX2V4Y2VsKFwiRGF0YS9BSFBEIDIwMTIgSW5jaWRlbnRzIFNBRU4gMDEyMDIwMjIueGxzXCIsIHNraXAgPSA1KVxucmF3XzIwMTMgPC0gcmVhZF9leGNlbChcIkRhdGEvQUhQRCAyMDEzIEluY2lkZW50cyBTQUVOIDAxMjAyMDIyLnhsc1wiLCBza2lwID0gNSlcbnJhd18yMDE0IDwtIHJlYWRfZXhjZWwoXCJEYXRhL0FIUEQgMjAxNCBJbmNpZGVucyBTQUVOIDAxMjAyMDIyLnhsc1wiLCBza2lwID0gNSlcbnJhd18yMDE1IDwtIHJlYWRfZXhjZWwoXCJEYXRhL0FIUEQgMjAxNSBJbmNpZGVudHMgU0FFTiAwMTIwMjAyMi54bHNcIiwgc2tpcCA9IDUpXG5yYXdfMjAxNiA8LSByZWFkX2V4Y2VsKFwiRGF0YS9BSFBEIDIwMTYgSW5jaWRlbnRzIFNBRU4gMDEyMDIwMjIueGxzXCIsIHNraXAgPSA1KVxucmF3XzIwMTcgPC0gcmVhZF9leGNlbChcIkRhdGEvQUhQRCAyMDE3IEluY2lkZW50cyBTQUVOIDAxMjAyMDIyLnhsc1wiLCBza2lwID0gNSlcbnJhd18yMDE4IDwtIHJlYWRfZXhjZWwoXCJEYXRhL0FIUEQgMjAxOCBJbmNpZGVudHMgU0FFTiAwMTIxMjAyMi54bHNcIiwgc2tpcCA9IDUpXG5yYXdfMjAxOSA8LSByZWFkX2V4Y2VsKFwiRGF0YS9BSFBEIDIwMTkgSW5jaWRlbnRzIFNBRU4gMDEyMTIwMjIueGxzXCIsIHNraXAgPSA1KVxucmF3XzIwMjAgPC0gcmVhZF9leGNlbChcIkRhdGEvQUhQRCAyMDIwIEluY2lkZW50cyBTQUVOIDAxMjEyMDIyLnhsc1wiLCBza2lwID0gNSlcbnJhd18yMDIxIDwtIHJlYWRfZXhjZWwoXCJEYXRhL0FIUEQgMjAyMSBJbmNpZGVudHMgU0FFTiAwMTIxMjAyMi54bHNcIiwgc2tpcCA9IDUpXG5gYGAifQ== -->
+<pre class="r"><code>raw_2011 &lt;- read_excel(&quot;Data/AHPD 2011 Incidents SAEN 10202022.xls&quot;, skip = 5) 
+raw_2012 &lt;- read_excel(&quot;Data/AHPD 2012 Incidents SAEN 01202022.xls&quot;, skip = 5)
+raw_2013 &lt;- read_excel(&quot;Data/AHPD 2013 Incidents SAEN 01202022.xls&quot;, skip = 5)
+raw_2014 &lt;- read_excel(&quot;Data/AHPD 2014 Incidens SAEN 01202022.xls&quot;, skip = 5)
+raw_2015 &lt;- read_excel(&quot;Data/AHPD 2015 Incidents SAEN 01202022.xls&quot;, skip = 5)
+raw_2016 &lt;- read_excel(&quot;Data/AHPD 2016 Incidents SAEN 01202022.xls&quot;, skip = 5)
+raw_2017 &lt;- read_excel(&quot;Data/AHPD 2017 Incidents SAEN 01202022.xls&quot;, skip = 5)
+raw_2018 &lt;- read_excel(&quot;Data/AHPD 2018 Incidents SAEN 01212022.xls&quot;, skip = 5)
+raw_2019 &lt;- read_excel(&quot;Data/AHPD 2019 Incidents SAEN 01212022.xls&quot;, skip = 5)
+raw_2020 &lt;- read_excel(&quot;Data/AHPD 2020 Incidents SAEN 01212022.xls&quot;, skip = 5)
+raw_2021 &lt;- read_excel(&quot;Data/AHPD 2021 Incidents SAEN 01212022.xls&quot;, skip = 5)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -341,8 +351,1068 @@ library(lubridate)</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxMiA8LSByYXdfMjAxMiAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2012 &lt;- raw_2012 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxMyA8LSByYXdfMjAxMyAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2013 &lt;- raw_2013 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxNCA8LSByYXdfMjAxNCAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2014 &lt;- raw_2014 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxNSA8LSByYXdfMjAxNSAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2015 &lt;- raw_2015 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxNiA8LSByYXdfMjAxNiAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2016 &lt;- raw_2016 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxNyA8LSByYXdfMjAxNyAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2017 &lt;- raw_2017 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxOCA8LSByYXdfMjAxOCAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2018 &lt;- raw_2018 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAxOSA8LSByYXdfMjAxOSAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2019 &lt;- raw_2019 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAyMCA8LSByYXdfMjAyMCAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2020 &lt;- raw_2020 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xlYW5fMjAyMSA8LSByYXdfMjAyMSAlPiVcbiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JVxuICBmaWx0ZXIoIWdyZXBsKFwiSW5jaWRlbnRcIiwgaW5jaWRlbnRfbnVtKSkgJT4lXG4gIGZpbHRlcighZ3JlcGwoXCJPZmZpY2VyXCIsIGluY2lkZW50X251bSkpICU+JVxuICBcbiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93XG4gIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtXG4gICkpICU+JVxuICBcbiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiBcIlwiLFxuICApKSAlPiVcbiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYFxuICApKSAlPiVcbiAgXG4gIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKFxuICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCxcbiAgKSkgJT4lXG4gICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbihcbiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLFxuICApKSAlPiVcbiAgXG4jbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSBcImV4dHJhXCIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvd1xuICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShvZmZpY2VyKSB+IFwiXCIsXG4gICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW1cbiAgKSkgJT4lXG4gIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbihcbiAgICAhaXMubmEoZGVzY18yKSB+IFwiXCIsXG4gICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uXG4gICkpICU+JVxuICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKFxuICAgICFpcy5uYShhZGRyZXNzXzIpIH4gXCJcIixcbiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgXG4gICkpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbihcbiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiBcIlwiLFxuICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLFxuICAgIFRSVUUgfiBvZmZlbnNlc18yXG4gICkpICU+JVxuICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfM1xuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNFxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNVxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oXG4gICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gXCJcIixcbiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSxcbiAgICBUUlVFIH4gb2ZmZW5zZXNfNlxuICApKSAlPiVcbiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oXG4gICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksXG4gICAgVFJVRSB+IG9mZmVuc2VzXzdcbiAgKSkgJT4lXG4gIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9IFwidXBcIikgJT4lXG4gIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gXCJ1cFwiKSAlPiVcbiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSBcInVwXCIpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JVxuICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiVcbiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JVxuICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JVxuICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oXG4gICAgaXMubmEoT2ZmZW5zZXMpIH4gXCJOb3QgbGlzdGVkXCIsXG4gICAgVFJVRSB+IE9mZmVuc2VzXG4gICkpICU+JVxuICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCBcIlwiKSkgJT4lXG4gIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JVxuICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiVcbiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiVcbiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JVxuICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiVcbiAgZGlzdGluY3QoKVxuYGBgIn0= -->
+<pre class="r"><code>clean_2021 &lt;- raw_2021 %&gt;%
+  rename(incident_num = Officer) %&gt;%
+  filter(!grepl(&quot;Incident&quot;, incident_num)) %&gt;%
+  filter(!grepl(&quot;Officer&quot;, incident_num)) %&gt;%
+  
+  #so what I&#39;m going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %&gt;%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) &amp; !is.na(Description) ~ Description, 
+    is.na(Date) &amp; is.na(Description) ~ &quot;&quot;,
+  )) %&gt;%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %&gt;%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) &amp; is.na(Date) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(Offenses)~ `Offenses`,
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %&gt;%
+   mutate(offenses_5 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_6 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %&gt;%
+    mutate(offenses_7 = case_when(
+    is.na(Date) &amp; is.na(`Incident Address`) &amp; is.na(incident_num) &amp; !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %&gt;%
+  
+#now mutate the original columns to get rid of the &quot;extra&quot; information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ &quot;&quot;,
+    is.na(officer) ~ incident_num
+  )) %&gt;%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ &quot;&quot;,
+    is.na(desc_2) ~ Description
+  )) %&gt;%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ &quot;&quot;,
+    is.na(address_2) ~ `Incident Address`
+  )) %&gt;%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %&gt;%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %&gt;%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %&gt;%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %&gt;%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ &quot;&quot;,
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %&gt;%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %&gt;%
+  fill(officer, .direction = &quot;up&quot;) %&gt;%
+  fill(desc_2, .direction = &quot;up&quot;) %&gt;%
+  fill(address_2, .direction = &quot;up&quot;) %&gt;%
+  filter(!is.na(incident_num)) %&gt;%
+  filter(!is.na(Date)) %&gt;%
+  filter(!is.na(Description)) %&gt;%
+  filter(!is.na(`Incident Address`)) %&gt;%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ &quot;Not listed&quot;,
+    TRUE ~ Offenses
+  )) %&gt;%
+  mutate_all(~replace(., is.na(.), &quot;&quot;)) %&gt;%
+  mutate(desc_clean = paste(Description, desc_2)) %&gt;%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %&gt;%
+  mutate(address_clean = paste(`Incident Address`, address_2))%&gt;%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %&gt;%
+  mutate(Date = mdy_hm(Date)) %&gt;%
+  clean_names() %&gt;%
+  mutate(offenses_clean = str_trim(offenses_clean)) %&gt;%
+  mutate(desc_clean = str_trim(desc_clean)) %&gt;%
+  distinct()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKRXcuIEFsYW1vIEhlaWdodHMgUEQgZ2F2ZSB1cyBzb21lIG5hc3R5IGRhdGEuIEhlcmUgSSB3aWxsIHRyeSB0byBjbGVhbiBpdCB1cAoKI1VwbG9hZCAmIENsZWFuCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkocmVhZHhsKQpsaWJyYXJ5KGphbml0b3IpCmxpYnJhcnkobHVicmlkYXRlKQpgYGAKCmBgYHtyfQpyYXdfMjAxMSA8LSByZWFkX2V4Y2VsKCJEYXRhL0FIUEQgMjAxMSBJbmNpZGVudHMgU0FFTiAxMDIwMjAyMi54bHMiLCBza2lwID0gNSkgCmBgYAoKCgpgYGB7cn0KY2xlYW5fMjAxMSA8LSByYXdfMjAxMSAlPiUKICByZW5hbWUoaW5jaWRlbnRfbnVtID0gT2ZmaWNlcikgJT4lCiAgZmlsdGVyKCFncmVwbCgiSW5jaWRlbnQiLCBpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJPZmZpY2VyIiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgCiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93CiAgbXV0YXRlKG9mZmljZXIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGluY2lkZW50X251bQogICkpICU+JQogIAogIG11dGF0ZShkZXNjXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKERlc2NyaXB0aW9uKSB+ICIiLAogICkpICU+JQogIG11dGF0ZShhZGRyZXNzXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIAogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShEYXRlKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShPZmZlbnNlcyl+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc18zKSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzQpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzUpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzYpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgCiNub3cgbXV0YXRlIHRoZSBvcmlnaW5hbCBjb2x1bW5zIHRvIGdldCByaWQgb2YgdGhlICJleHRyYSIgaW5mb3JtYXRpb24gIAogIG11dGF0ZShpbmNpZGVudF9udW0gPSBjYXNlX3doZW4oCiAgICAhaXMubmEob2ZmaWNlcikgfiAiIiwKICAgIGlzLm5hKG9mZmljZXIpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgbXV0YXRlKERlc2NyaXB0aW9uID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGRlc2NfMikgfiAiIiwKICAgIGlzLm5hKGRlc2NfMikgfiBEZXNjcmlwdGlvbgogICkpICU+JQogIG11dGF0ZShgSW5jaWRlbnQgQWRkcmVzc2AgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYWRkcmVzc18yKSB+ICIiLAogICAgaXMubmEoYWRkcmVzc18yKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMiA9PSBvZmZlbnNlc18zIH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChvZmZlbnNlc18yKSwKICAgIFRSVUUgfiBvZmZlbnNlc18yCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSwKICAgIFRSVUUgfiBvZmZlbnNlc18zCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc180ID09IG9mZmVuc2VzXzUgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChvZmZlbnNlc180KSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzQKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzUgPT0gb2ZmZW5zZXNfNiB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNQogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc182CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNykpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc183CiAgKSkgJT4lCiAgZmlsbChvZmZpY2VyLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChkZXNjXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGFkZHJlc3NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbHRlcighaXMubmEoaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEYXRlKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JQogIGZpbHRlcighaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSkgJT4lCiAgbXV0YXRlKE9mZmVuc2VzID0gY2FzZV93aGVuKAogICAgaXMubmEoT2ZmZW5zZXMpIH4gIk5vdCBsaXN0ZWQiLAogICAgVFJVRSB+IE9mZmVuc2VzCiAgKSkgJT4lCiAgbXV0YXRlX2FsbCh+cmVwbGFjZSguLCBpcy5uYSguKSwgIiIpKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHBhc3RlKERlc2NyaXB0aW9uLCBkZXNjXzIpKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JQogIG11dGF0ZShhZGRyZXNzX2NsZWFuID0gcGFzdGUoYEluY2lkZW50IEFkZHJlc3NgLCBhZGRyZXNzXzIpKSU+JQogIHNlbGVjdCgtRGVzY3JpcHRpb24sIC1PZmZlbnNlcywgLWBJbmNpZGVudCBBZGRyZXNzYCwgLWRlc2NfMiwgLW9mZmVuc2VzXzIsIC1vZmZlbnNlc18zLCAtb2ZmZW5zZXNfNCwgLW9mZmVuc2VzXzUsIC1vZmZlbnNlc182LCAtb2ZmZW5zZXNfNywgLWFkZHJlc3NfMikgJT4lCiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JQogIGNsZWFuX25hbWVzKCkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gc3RyX3RyaW0ob2ZmZW5zZXNfY2xlYW4pKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiUKICBkaXN0aW5jdCgpCmBgYAogIAog</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKRXcuIEFsYW1vIEhlaWdodHMgUEQgZ2F2ZSB1cyBzb21lIG5hc3R5IGRhdGEuIEhlcmUgSSB3aWxsIHRyeSB0byBjbGVhbiBpdCB1cAoKI1VwbG9hZCAmIENsZWFuCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkocmVhZHhsKQpsaWJyYXJ5KGphbml0b3IpCmxpYnJhcnkobHVicmlkYXRlKQpgYGAKCmBgYHtyfQpyYXdfMjAxMSA8LSByZWFkX2V4Y2VsKCJEYXRhL0FIUEQgMjAxMSBJbmNpZGVudHMgU0FFTiAxMDIwMjAyMi54bHMiLCBza2lwID0gNSkgCnJhd18yMDEyIDwtIHJlYWRfZXhjZWwoIkRhdGEvQUhQRCAyMDEyIEluY2lkZW50cyBTQUVOIDAxMjAyMDIyLnhscyIsIHNraXAgPSA1KQpyYXdfMjAxMyA8LSByZWFkX2V4Y2VsKCJEYXRhL0FIUEQgMjAxMyBJbmNpZGVudHMgU0FFTiAwMTIwMjAyMi54bHMiLCBza2lwID0gNSkKcmF3XzIwMTQgPC0gcmVhZF9leGNlbCgiRGF0YS9BSFBEIDIwMTQgSW5jaWRlbnMgU0FFTiAwMTIwMjAyMi54bHMiLCBza2lwID0gNSkKcmF3XzIwMTUgPC0gcmVhZF9leGNlbCgiRGF0YS9BSFBEIDIwMTUgSW5jaWRlbnRzIFNBRU4gMDEyMDIwMjIueGxzIiwgc2tpcCA9IDUpCnJhd18yMDE2IDwtIHJlYWRfZXhjZWwoIkRhdGEvQUhQRCAyMDE2IEluY2lkZW50cyBTQUVOIDAxMjAyMDIyLnhscyIsIHNraXAgPSA1KQpyYXdfMjAxNyA8LSByZWFkX2V4Y2VsKCJEYXRhL0FIUEQgMjAxNyBJbmNpZGVudHMgU0FFTiAwMTIwMjAyMi54bHMiLCBza2lwID0gNSkKcmF3XzIwMTggPC0gcmVhZF9leGNlbCgiRGF0YS9BSFBEIDIwMTggSW5jaWRlbnRzIFNBRU4gMDEyMTIwMjIueGxzIiwgc2tpcCA9IDUpCnJhd18yMDE5IDwtIHJlYWRfZXhjZWwoIkRhdGEvQUhQRCAyMDE5IEluY2lkZW50cyBTQUVOIDAxMjEyMDIyLnhscyIsIHNraXAgPSA1KQpyYXdfMjAyMCA8LSByZWFkX2V4Y2VsKCJEYXRhL0FIUEQgMjAyMCBJbmNpZGVudHMgU0FFTiAwMTIxMjAyMi54bHMiLCBza2lwID0gNSkKcmF3XzIwMjEgPC0gcmVhZF9leGNlbCgiRGF0YS9BSFBEIDIwMjEgSW5jaWRlbnRzIFNBRU4gMDEyMTIwMjIueGxzIiwgc2tpcCA9IDUpCmBgYAoKCgpgYGB7cn0KY2xlYW5fMjAxMSA8LSByYXdfMjAxMSAlPiUKICByZW5hbWUoaW5jaWRlbnRfbnVtID0gT2ZmaWNlcikgJT4lCiAgZmlsdGVyKCFncmVwbCgiSW5jaWRlbnQiLCBpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJPZmZpY2VyIiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgCiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93CiAgbXV0YXRlKG9mZmljZXIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGluY2lkZW50X251bQogICkpICU+JQogIAogIG11dGF0ZShkZXNjXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKERlc2NyaXB0aW9uKSB+ICIiLAogICkpICU+JQogIG11dGF0ZShhZGRyZXNzXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIAogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShEYXRlKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShPZmZlbnNlcyl+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc18zKSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzQpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzUpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzYpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgCiNub3cgbXV0YXRlIHRoZSBvcmlnaW5hbCBjb2x1bW5zIHRvIGdldCByaWQgb2YgdGhlICJleHRyYSIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvdwogIG11dGF0ZShpbmNpZGVudF9udW0gPSBjYXNlX3doZW4oCiAgICAhaXMubmEob2ZmaWNlcikgfiAiIiwKICAgIGlzLm5hKG9mZmljZXIpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgbXV0YXRlKERlc2NyaXB0aW9uID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGRlc2NfMikgfiAiIiwKICAgIGlzLm5hKGRlc2NfMikgfiBEZXNjcmlwdGlvbgogICkpICU+JQogIG11dGF0ZShgSW5jaWRlbnQgQWRkcmVzc2AgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYWRkcmVzc18yKSB+ICIiLAogICAgaXMubmEoYWRkcmVzc18yKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMiA9PSBvZmZlbnNlc18zIH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChvZmZlbnNlc18yKSwKICAgIFRSVUUgfiBvZmZlbnNlc18yCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSwKICAgIFRSVUUgfiBvZmZlbnNlc18zCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc180ID09IG9mZmVuc2VzXzUgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChvZmZlbnNlc180KSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzQKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzUgPT0gb2ZmZW5zZXNfNiB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNQogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc182CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNykpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc183CiAgKSkgJT4lCiAgZmlsbChvZmZpY2VyLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChkZXNjXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGFkZHJlc3NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbHRlcighaXMubmEoaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEYXRlKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JQogIGZpbHRlcighaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSkgJT4lCiAgbXV0YXRlKE9mZmVuc2VzID0gY2FzZV93aGVuKAogICAgaXMubmEoT2ZmZW5zZXMpIH4gIk5vdCBsaXN0ZWQiLAogICAgVFJVRSB+IE9mZmVuc2VzCiAgKSkgJT4lCiAgbXV0YXRlX2FsbCh+cmVwbGFjZSguLCBpcy5uYSguKSwgIiIpKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHBhc3RlKERlc2NyaXB0aW9uLCBkZXNjXzIpKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JQogIG11dGF0ZShhZGRyZXNzX2NsZWFuID0gcGFzdGUoYEluY2lkZW50IEFkZHJlc3NgLCBhZGRyZXNzXzIpKSU+JQogIHNlbGVjdCgtRGVzY3JpcHRpb24sIC1PZmZlbnNlcywgLWBJbmNpZGVudCBBZGRyZXNzYCwgLWRlc2NfMiwgLW9mZmVuc2VzXzIsIC1vZmZlbnNlc18zLCAtb2ZmZW5zZXNfNCwgLW9mZmVuc2VzXzUsIC1vZmZlbnNlc182LCAtb2ZmZW5zZXNfNywgLWFkZHJlc3NfMikgJT4lCiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JQogIGNsZWFuX25hbWVzKCkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gc3RyX3RyaW0ob2ZmZW5zZXNfY2xlYW4pKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiUKICBkaXN0aW5jdCgpCmBgYAogIApgYGB7cn0KY2xlYW5fMjAxMiA8LSByYXdfMjAxMiAlPiUKICByZW5hbWUoaW5jaWRlbnRfbnVtID0gT2ZmaWNlcikgJT4lCiAgZmlsdGVyKCFncmVwbCgiSW5jaWRlbnQiLCBpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJPZmZpY2VyIiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgCiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93CiAgbXV0YXRlKG9mZmljZXIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGluY2lkZW50X251bQogICkpICU+JQogIAogIG11dGF0ZShkZXNjXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKERlc2NyaXB0aW9uKSB+ICIiLAogICkpICU+JQogIG11dGF0ZShhZGRyZXNzXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIAogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShEYXRlKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShPZmZlbnNlcyl+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc18zKSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzQpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzUpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzYpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgCiNub3cgbXV0YXRlIHRoZSBvcmlnaW5hbCBjb2x1bW5zIHRvIGdldCByaWQgb2YgdGhlICJleHRyYSIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvdwogIG11dGF0ZShpbmNpZGVudF9udW0gPSBjYXNlX3doZW4oCiAgICAhaXMubmEob2ZmaWNlcikgfiAiIiwKICAgIGlzLm5hKG9mZmljZXIpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgbXV0YXRlKERlc2NyaXB0aW9uID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGRlc2NfMikgfiAiIiwKICAgIGlzLm5hKGRlc2NfMikgfiBEZXNjcmlwdGlvbgogICkpICU+JQogIG11dGF0ZShgSW5jaWRlbnQgQWRkcmVzc2AgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYWRkcmVzc18yKSB+ICIiLAogICAgaXMubmEoYWRkcmVzc18yKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMiA9PSBvZmZlbnNlc18zIH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChvZmZlbnNlc18yKSwKICAgIFRSVUUgfiBvZmZlbnNlc18yCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSwKICAgIFRSVUUgfiBvZmZlbnNlc18zCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc180ID09IG9mZmVuc2VzXzUgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChvZmZlbnNlc180KSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzQKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzUgPT0gb2ZmZW5zZXNfNiB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNQogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc182CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNykpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc183CiAgKSkgJT4lCiAgZmlsbChvZmZpY2VyLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChkZXNjXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGFkZHJlc3NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbHRlcighaXMubmEoaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEYXRlKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JQogIGZpbHRlcighaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSkgJT4lCiAgbXV0YXRlKE9mZmVuc2VzID0gY2FzZV93aGVuKAogICAgaXMubmEoT2ZmZW5zZXMpIH4gIk5vdCBsaXN0ZWQiLAogICAgVFJVRSB+IE9mZmVuc2VzCiAgKSkgJT4lCiAgbXV0YXRlX2FsbCh+cmVwbGFjZSguLCBpcy5uYSguKSwgIiIpKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHBhc3RlKERlc2NyaXB0aW9uLCBkZXNjXzIpKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JQogIG11dGF0ZShhZGRyZXNzX2NsZWFuID0gcGFzdGUoYEluY2lkZW50IEFkZHJlc3NgLCBhZGRyZXNzXzIpKSU+JQogIHNlbGVjdCgtRGVzY3JpcHRpb24sIC1PZmZlbnNlcywgLWBJbmNpZGVudCBBZGRyZXNzYCwgLWRlc2NfMiwgLW9mZmVuc2VzXzIsIC1vZmZlbnNlc18zLCAtb2ZmZW5zZXNfNCwgLW9mZmVuc2VzXzUsIC1vZmZlbnNlc182LCAtb2ZmZW5zZXNfNywgLWFkZHJlc3NfMikgJT4lCiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JQogIGNsZWFuX25hbWVzKCkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gc3RyX3RyaW0ob2ZmZW5zZXNfY2xlYW4pKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiUKICBkaXN0aW5jdCgpCmBgYAoKYGBge3J9CmNsZWFuXzIwMTMgPC0gcmF3XzIwMTMgJT4lCiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JQogIGZpbHRlcighZ3JlcGwoIkluY2lkZW50IiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFncmVwbCgiT2ZmaWNlciIsIGluY2lkZW50X251bSkpICU+JQogIAogICNzbyB3aGF0IEknbSBnb2luZyB0byBkbyBpcyBjcmVhdGUgbW9yZSBjb2x1bW5zIGJhc2VkIG9uIGFsbCBvZiB0aGUgZGFtbiBtaXN0YWtlcyB0aGV5IG1hZGUsIHVzdWFsbHkgdGhleSBqdXN0IGhhdmUgaW5mb3JtYXRpb24gaW4gdGhlIHJvdyBiZWxvdwogIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgfiBpbmNpZGVudF9udW0KICApKSAlPiUKICAKICBtdXRhdGUoZGVzY18yID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiAhaXMubmEoRGVzY3JpcHRpb24pIH4gRGVzY3JpcHRpb24sIAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiAiIiwKICApKSAlPiUKICBtdXRhdGUoYWRkcmVzc18yID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgfiBgSW5jaWRlbnQgQWRkcmVzc2AKICApKSAlPiUKICAKICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfMyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc180ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogIAojbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSAiZXh0cmEiIGluZm9ybWF0aW9uIGFuZCBicmluZyB1cCB0aGUgaW5mb3JtYXRpb24gdG8gdGhlIHByb3BlciByb3cKICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKAogICAgIWlzLm5hKG9mZmljZXIpIH4gIiIsCiAgICBpcy5uYShvZmZpY2VyKSB+IGluY2lkZW50X251bQogICkpICU+JQogIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShkZXNjXzIpIH4gIiIsCiAgICBpcy5uYShkZXNjXzIpIH4gRGVzY3JpcHRpb24KICApKSAlPiUKICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGFkZHJlc3NfMikgfiAiIiwKICAgIGlzLm5hKGFkZHJlc3NfMikgfiBgSW5jaWRlbnQgQWRkcmVzc2AKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzIgPT0gb2ZmZW5zZXNfMyB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQob2ZmZW5zZXNfMiksCiAgICBUUlVFIH4gb2ZmZW5zZXNfMgogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfMyA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzMgPT0gb2ZmZW5zZXNfNCB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChvZmZlbnNlc18zKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfMwogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc180ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc180CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc181ID09IG9mZmVuc2VzXzYgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzUpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzUKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzYgPT0gb2ZmZW5zZXNfNyB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc182KSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNgogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc183ID0gY2FzZV93aGVuKAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNwogICkpICU+JQogIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JQogIGZpbHRlcighaXMubmEoRGF0ZSkpICU+JQogIGZpbHRlcighaXMubmEoRGVzY3JpcHRpb24pKSAlPiUKICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JQogIG11dGF0ZShPZmZlbnNlcyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKE9mZmVuc2VzKSB+ICJOb3QgbGlzdGVkIiwKICAgIFRSVUUgfiBPZmZlbnNlcwogICkpICU+JQogIG11dGF0ZV9hbGwofnJlcGxhY2UoLiwgaXMubmEoLiksICIiKSkgJT4lCiAgbXV0YXRlKGRlc2NfY2xlYW4gPSBwYXN0ZShEZXNjcmlwdGlvbiwgZGVzY18yKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gcGFzdGUoT2ZmZW5zZXMsIG9mZmVuc2VzXzIsIG9mZmVuc2VzXzMsIG9mZmVuc2VzXzQsIG9mZmVuc2VzXzUsIG9mZmVuc2VzXzYsIG9mZmVuc2VzXzcpKSAlPiUKICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiUKICBzZWxlY3QoLURlc2NyaXB0aW9uLCAtT2ZmZW5zZXMsIC1gSW5jaWRlbnQgQWRkcmVzc2AsIC1kZXNjXzIsIC1vZmZlbnNlc18yLCAtb2ZmZW5zZXNfMywgLW9mZmVuc2VzXzQsIC1vZmZlbnNlc181LCAtb2ZmZW5zZXNfNiwgLW9mZmVuc2VzXzcsIC1hZGRyZXNzXzIpICU+JQogIG11dGF0ZShEYXRlID0gbWR5X2htKERhdGUpKSAlPiUKICBjbGVhbl9uYW1lcygpICU+JQogIG11dGF0ZShvZmZlbnNlc19jbGVhbiA9IHN0cl90cmltKG9mZmVuc2VzX2NsZWFuKSkgJT4lCiAgbXV0YXRlKGRlc2NfY2xlYW4gPSBzdHJfdHJpbShkZXNjX2NsZWFuKSkgJT4lCiAgZGlzdGluY3QoKQpgYGAKCmBgYHtyfQpjbGVhbl8yMDE0IDwtIHJhd18yMDE0ICU+JQogIHJlbmFtZShpbmNpZGVudF9udW0gPSBPZmZpY2VyKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJJbmNpZGVudCIsIGluY2lkZW50X251bSkpICU+JQogIGZpbHRlcighZ3JlcGwoIk9mZmljZXIiLCBpbmNpZGVudF9udW0pKSAlPiUKICAKICAjc28gd2hhdCBJJ20gZ29pbmcgdG8gZG8gaXMgY3JlYXRlIG1vcmUgY29sdW1ucyBiYXNlZCBvbiBhbGwgb2YgdGhlIGRhbW4gbWlzdGFrZXMgdGhleSBtYWRlLCB1c3VhbGx5IHRoZXkganVzdCBoYXZlIGluZm9ybWF0aW9uIGluIHRoZSByb3cgYmVsb3cKICBtdXRhdGUob2ZmaWNlciA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgCiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgIWlzLm5hKERlc2NyaXB0aW9uKSB+IERlc2NyaXB0aW9uLCAKICAgIGlzLm5hKERhdGUpICYgaXMubmEoRGVzY3JpcHRpb24pIH4gIiIsCiAgKSkgJT4lCiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpIH4gYEluY2lkZW50IEFkZHJlc3NgCiAgKSkgJT4lCiAgCiAgbXV0YXRlKG9mZmVuc2VzXzIgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKERhdGUpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKE9mZmVuc2VzKX4gYE9mZmVuc2VzYCwKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNCA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzMpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc181ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNCkpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNSkpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgIG11dGF0ZShvZmZlbnNlc183ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNikpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAKI25vdyBtdXRhdGUgdGhlIG9yaWdpbmFsIGNvbHVtbnMgdG8gZ2V0IHJpZCBvZiB0aGUgImV4dHJhIiBpbmZvcm1hdGlvbiBhbmQgYnJpbmcgdXAgdGhlIGluZm9ybWF0aW9uIHRvIHRoZSBwcm9wZXIgcm93CiAgbXV0YXRlKGluY2lkZW50X251bSA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShvZmZpY2VyKSB+ICIiLAogICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW0KICApKSAlPiUKICBtdXRhdGUoRGVzY3JpcHRpb24gPSBjYXNlX3doZW4oCiAgICAhaXMubmEoZGVzY18yKSB+ICIiLAogICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uCiAgKSkgJT4lCiAgbXV0YXRlKGBJbmNpZGVudCBBZGRyZXNzYCA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShhZGRyZXNzXzIpIH4gIiIsCiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzIgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLAogICAgVFJVRSB+IG9mZmVuc2VzXzIKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc18zID09IG9mZmVuc2VzXzQgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQob2ZmZW5zZXNfMykpLAogICAgVFJVRSB+IG9mZmVuc2VzXzMKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNCA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzQgPT0gb2ZmZW5zZXNfNSB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzQpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc181ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc181CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc182ID09IG9mZmVuc2VzXzcgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNikpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzYKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc183KSkpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzcKICApKSAlPiUKICBmaWxsKG9mZmljZXIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGRlc2NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbGwoYWRkcmVzc18yLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsdGVyKCFpcy5uYShpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiUKICBmaWx0ZXIoIWlzLm5hKERlc2NyaXB0aW9uKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApKSAlPiUKICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oCiAgICBpcy5uYShPZmZlbnNlcykgfiAiTm90IGxpc3RlZCIsCiAgICBUUlVFIH4gT2ZmZW5zZXMKICApKSAlPiUKICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCAiIikpICU+JQogIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JQogIG11dGF0ZShvZmZlbnNlc19jbGVhbiA9IHBhc3RlKE9mZmVuc2VzLCBvZmZlbnNlc18yLCBvZmZlbnNlc18zLCBvZmZlbnNlc180LCBvZmZlbnNlc181LCBvZmZlbnNlc182LCBvZmZlbnNlc183KSkgJT4lCiAgbXV0YXRlKGFkZHJlc3NfY2xlYW4gPSBwYXN0ZShgSW5jaWRlbnQgQWRkcmVzc2AsIGFkZHJlc3NfMikpJT4lCiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiUKICBtdXRhdGUoRGF0ZSA9IG1keV9obShEYXRlKSkgJT4lCiAgY2xlYW5fbmFtZXMoKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JQogIG11dGF0ZShkZXNjX2NsZWFuID0gc3RyX3RyaW0oZGVzY19jbGVhbikpICU+JQogIGRpc3RpbmN0KCkKYGBgCgpgYGB7cn0KY2xlYW5fMjAxNSA8LSByYXdfMjAxNSAlPiUKICByZW5hbWUoaW5jaWRlbnRfbnVtID0gT2ZmaWNlcikgJT4lCiAgZmlsdGVyKCFncmVwbCgiSW5jaWRlbnQiLCBpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJPZmZpY2VyIiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgCiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93CiAgbXV0YXRlKG9mZmljZXIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGluY2lkZW50X251bQogICkpICU+JQogIAogIG11dGF0ZShkZXNjXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKERlc2NyaXB0aW9uKSB+ICIiLAogICkpICU+JQogIG11dGF0ZShhZGRyZXNzXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIAogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShEYXRlKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShPZmZlbnNlcyl+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc18zKSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzQpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzUpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzYpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgCiNub3cgbXV0YXRlIHRoZSBvcmlnaW5hbCBjb2x1bW5zIHRvIGdldCByaWQgb2YgdGhlICJleHRyYSIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvdwogIG11dGF0ZShpbmNpZGVudF9udW0gPSBjYXNlX3doZW4oCiAgICAhaXMubmEob2ZmaWNlcikgfiAiIiwKICAgIGlzLm5hKG9mZmljZXIpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgbXV0YXRlKERlc2NyaXB0aW9uID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGRlc2NfMikgfiAiIiwKICAgIGlzLm5hKGRlc2NfMikgfiBEZXNjcmlwdGlvbgogICkpICU+JQogIG11dGF0ZShgSW5jaWRlbnQgQWRkcmVzc2AgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYWRkcmVzc18yKSB+ICIiLAogICAgaXMubmEoYWRkcmVzc18yKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMiA9PSBvZmZlbnNlc18zIH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChvZmZlbnNlc18yKSwKICAgIFRSVUUgfiBvZmZlbnNlc18yCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSwKICAgIFRSVUUgfiBvZmZlbnNlc18zCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc180ID09IG9mZmVuc2VzXzUgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChvZmZlbnNlc180KSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzQKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzUgPT0gb2ZmZW5zZXNfNiB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNQogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc182CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNykpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc183CiAgKSkgJT4lCiAgZmlsbChvZmZpY2VyLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChkZXNjXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGFkZHJlc3NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbHRlcighaXMubmEoaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEYXRlKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JQogIGZpbHRlcighaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSkgJT4lCiAgbXV0YXRlKE9mZmVuc2VzID0gY2FzZV93aGVuKAogICAgaXMubmEoT2ZmZW5zZXMpIH4gIk5vdCBsaXN0ZWQiLAogICAgVFJVRSB+IE9mZmVuc2VzCiAgKSkgJT4lCiAgbXV0YXRlX2FsbCh+cmVwbGFjZSguLCBpcy5uYSguKSwgIiIpKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHBhc3RlKERlc2NyaXB0aW9uLCBkZXNjXzIpKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JQogIG11dGF0ZShhZGRyZXNzX2NsZWFuID0gcGFzdGUoYEluY2lkZW50IEFkZHJlc3NgLCBhZGRyZXNzXzIpKSU+JQogIHNlbGVjdCgtRGVzY3JpcHRpb24sIC1PZmZlbnNlcywgLWBJbmNpZGVudCBBZGRyZXNzYCwgLWRlc2NfMiwgLW9mZmVuc2VzXzIsIC1vZmZlbnNlc18zLCAtb2ZmZW5zZXNfNCwgLW9mZmVuc2VzXzUsIC1vZmZlbnNlc182LCAtb2ZmZW5zZXNfNywgLWFkZHJlc3NfMikgJT4lCiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JQogIGNsZWFuX25hbWVzKCkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gc3RyX3RyaW0ob2ZmZW5zZXNfY2xlYW4pKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiUKICBkaXN0aW5jdCgpCmBgYAoKYGBge3J9CmNsZWFuXzIwMTYgPC0gcmF3XzIwMTYgJT4lCiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JQogIGZpbHRlcighZ3JlcGwoIkluY2lkZW50IiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFncmVwbCgiT2ZmaWNlciIsIGluY2lkZW50X251bSkpICU+JQogIAogICNzbyB3aGF0IEknbSBnb2luZyB0byBkbyBpcyBjcmVhdGUgbW9yZSBjb2x1bW5zIGJhc2VkIG9uIGFsbCBvZiB0aGUgZGFtbiBtaXN0YWtlcyB0aGV5IG1hZGUsIHVzdWFsbHkgdGhleSBqdXN0IGhhdmUgaW5mb3JtYXRpb24gaW4gdGhlIHJvdyBiZWxvdwogIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgfiBpbmNpZGVudF9udW0KICApKSAlPiUKICAKICBtdXRhdGUoZGVzY18yID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiAhaXMubmEoRGVzY3JpcHRpb24pIH4gRGVzY3JpcHRpb24sIAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiAiIiwKICApKSAlPiUKICBtdXRhdGUoYWRkcmVzc18yID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgfiBgSW5jaWRlbnQgQWRkcmVzc2AKICApKSAlPiUKICAKICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfMyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc180ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogIAojbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSAiZXh0cmEiIGluZm9ybWF0aW9uIGFuZCBicmluZyB1cCB0aGUgaW5mb3JtYXRpb24gdG8gdGhlIHByb3BlciByb3cKICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKAogICAgIWlzLm5hKG9mZmljZXIpIH4gIiIsCiAgICBpcy5uYShvZmZpY2VyKSB+IGluY2lkZW50X251bQogICkpICU+JQogIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShkZXNjXzIpIH4gIiIsCiAgICBpcy5uYShkZXNjXzIpIH4gRGVzY3JpcHRpb24KICApKSAlPiUKICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGFkZHJlc3NfMikgfiAiIiwKICAgIGlzLm5hKGFkZHJlc3NfMikgfiBgSW5jaWRlbnQgQWRkcmVzc2AKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzIgPT0gb2ZmZW5zZXNfMyB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQob2ZmZW5zZXNfMiksCiAgICBUUlVFIH4gb2ZmZW5zZXNfMgogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfMyA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzMgPT0gb2ZmZW5zZXNfNCB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChvZmZlbnNlc18zKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfMwogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc180ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc180CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc181ID09IG9mZmVuc2VzXzYgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzUpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzUKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzYgPT0gb2ZmZW5zZXNfNyB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc182KSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNgogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc183ID0gY2FzZV93aGVuKAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNwogICkpICU+JQogIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JQogIGZpbHRlcighaXMubmEoRGF0ZSkpICU+JQogIGZpbHRlcighaXMubmEoRGVzY3JpcHRpb24pKSAlPiUKICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JQogIG11dGF0ZShPZmZlbnNlcyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKE9mZmVuc2VzKSB+ICJOb3QgbGlzdGVkIiwKICAgIFRSVUUgfiBPZmZlbnNlcwogICkpICU+JQogIG11dGF0ZV9hbGwofnJlcGxhY2UoLiwgaXMubmEoLiksICIiKSkgJT4lCiAgbXV0YXRlKGRlc2NfY2xlYW4gPSBwYXN0ZShEZXNjcmlwdGlvbiwgZGVzY18yKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gcGFzdGUoT2ZmZW5zZXMsIG9mZmVuc2VzXzIsIG9mZmVuc2VzXzMsIG9mZmVuc2VzXzQsIG9mZmVuc2VzXzUsIG9mZmVuc2VzXzYsIG9mZmVuc2VzXzcpKSAlPiUKICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiUKICBzZWxlY3QoLURlc2NyaXB0aW9uLCAtT2ZmZW5zZXMsIC1gSW5jaWRlbnQgQWRkcmVzc2AsIC1kZXNjXzIsIC1vZmZlbnNlc18yLCAtb2ZmZW5zZXNfMywgLW9mZmVuc2VzXzQsIC1vZmZlbnNlc181LCAtb2ZmZW5zZXNfNiwgLW9mZmVuc2VzXzcsIC1hZGRyZXNzXzIpICU+JQogIG11dGF0ZShEYXRlID0gbWR5X2htKERhdGUpKSAlPiUKICBjbGVhbl9uYW1lcygpICU+JQogIG11dGF0ZShvZmZlbnNlc19jbGVhbiA9IHN0cl90cmltKG9mZmVuc2VzX2NsZWFuKSkgJT4lCiAgbXV0YXRlKGRlc2NfY2xlYW4gPSBzdHJfdHJpbShkZXNjX2NsZWFuKSkgJT4lCiAgZGlzdGluY3QoKQpgYGAKCmBgYHtyfQpjbGVhbl8yMDE3IDwtIHJhd18yMDE3ICU+JQogIHJlbmFtZShpbmNpZGVudF9udW0gPSBPZmZpY2VyKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJJbmNpZGVudCIsIGluY2lkZW50X251bSkpICU+JQogIGZpbHRlcighZ3JlcGwoIk9mZmljZXIiLCBpbmNpZGVudF9udW0pKSAlPiUKICAKICAjc28gd2hhdCBJJ20gZ29pbmcgdG8gZG8gaXMgY3JlYXRlIG1vcmUgY29sdW1ucyBiYXNlZCBvbiBhbGwgb2YgdGhlIGRhbW4gbWlzdGFrZXMgdGhleSBtYWRlLCB1c3VhbGx5IHRoZXkganVzdCBoYXZlIGluZm9ybWF0aW9uIGluIHRoZSByb3cgYmVsb3cKICBtdXRhdGUob2ZmaWNlciA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgCiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgIWlzLm5hKERlc2NyaXB0aW9uKSB+IERlc2NyaXB0aW9uLCAKICAgIGlzLm5hKERhdGUpICYgaXMubmEoRGVzY3JpcHRpb24pIH4gIiIsCiAgKSkgJT4lCiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpIH4gYEluY2lkZW50IEFkZHJlc3NgCiAgKSkgJT4lCiAgCiAgbXV0YXRlKG9mZmVuc2VzXzIgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKERhdGUpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKE9mZmVuc2VzKX4gYE9mZmVuc2VzYCwKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNCA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzMpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc181ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNCkpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNSkpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgIG11dGF0ZShvZmZlbnNlc183ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNikpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAKI25vdyBtdXRhdGUgdGhlIG9yaWdpbmFsIGNvbHVtbnMgdG8gZ2V0IHJpZCBvZiB0aGUgImV4dHJhIiBpbmZvcm1hdGlvbiBhbmQgYnJpbmcgdXAgdGhlIGluZm9ybWF0aW9uIHRvIHRoZSBwcm9wZXIgcm93CiAgbXV0YXRlKGluY2lkZW50X251bSA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShvZmZpY2VyKSB+ICIiLAogICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW0KICApKSAlPiUKICBtdXRhdGUoRGVzY3JpcHRpb24gPSBjYXNlX3doZW4oCiAgICAhaXMubmEoZGVzY18yKSB+ICIiLAogICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uCiAgKSkgJT4lCiAgbXV0YXRlKGBJbmNpZGVudCBBZGRyZXNzYCA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShhZGRyZXNzXzIpIH4gIiIsCiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzIgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLAogICAgVFJVRSB+IG9mZmVuc2VzXzIKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc18zID09IG9mZmVuc2VzXzQgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQob2ZmZW5zZXNfMykpLAogICAgVFJVRSB+IG9mZmVuc2VzXzMKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNCA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzQgPT0gb2ZmZW5zZXNfNSB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzQpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc181ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc181CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc182ID09IG9mZmVuc2VzXzcgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNikpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzYKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc183KSkpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzcKICApKSAlPiUKICBmaWxsKG9mZmljZXIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGRlc2NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbGwoYWRkcmVzc18yLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsdGVyKCFpcy5uYShpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiUKICBmaWx0ZXIoIWlzLm5hKERlc2NyaXB0aW9uKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApKSAlPiUKICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oCiAgICBpcy5uYShPZmZlbnNlcykgfiAiTm90IGxpc3RlZCIsCiAgICBUUlVFIH4gT2ZmZW5zZXMKICApKSAlPiUKICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCAiIikpICU+JQogIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JQogIG11dGF0ZShvZmZlbnNlc19jbGVhbiA9IHBhc3RlKE9mZmVuc2VzLCBvZmZlbnNlc18yLCBvZmZlbnNlc18zLCBvZmZlbnNlc180LCBvZmZlbnNlc181LCBvZmZlbnNlc182LCBvZmZlbnNlc183KSkgJT4lCiAgbXV0YXRlKGFkZHJlc3NfY2xlYW4gPSBwYXN0ZShgSW5jaWRlbnQgQWRkcmVzc2AsIGFkZHJlc3NfMikpJT4lCiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiUKICBtdXRhdGUoRGF0ZSA9IG1keV9obShEYXRlKSkgJT4lCiAgY2xlYW5fbmFtZXMoKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JQogIG11dGF0ZShkZXNjX2NsZWFuID0gc3RyX3RyaW0oZGVzY19jbGVhbikpICU+JQogIGRpc3RpbmN0KCkKYGBgCgpgYGB7cn0KY2xlYW5fMjAxOCA8LSByYXdfMjAxOCAlPiUKICByZW5hbWUoaW5jaWRlbnRfbnVtID0gT2ZmaWNlcikgJT4lCiAgZmlsdGVyKCFncmVwbCgiSW5jaWRlbnQiLCBpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJPZmZpY2VyIiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgCiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93CiAgbXV0YXRlKG9mZmljZXIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGluY2lkZW50X251bQogICkpICU+JQogIAogIG11dGF0ZShkZXNjXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKERlc2NyaXB0aW9uKSB+ICIiLAogICkpICU+JQogIG11dGF0ZShhZGRyZXNzXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIAogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShEYXRlKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShPZmZlbnNlcyl+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc18zKSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzQpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzUpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzYpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgCiNub3cgbXV0YXRlIHRoZSBvcmlnaW5hbCBjb2x1bW5zIHRvIGdldCByaWQgb2YgdGhlICJleHRyYSIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvdwogIG11dGF0ZShpbmNpZGVudF9udW0gPSBjYXNlX3doZW4oCiAgICAhaXMubmEob2ZmaWNlcikgfiAiIiwKICAgIGlzLm5hKG9mZmljZXIpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgbXV0YXRlKERlc2NyaXB0aW9uID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGRlc2NfMikgfiAiIiwKICAgIGlzLm5hKGRlc2NfMikgfiBEZXNjcmlwdGlvbgogICkpICU+JQogIG11dGF0ZShgSW5jaWRlbnQgQWRkcmVzc2AgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYWRkcmVzc18yKSB+ICIiLAogICAgaXMubmEoYWRkcmVzc18yKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMiA9PSBvZmZlbnNlc18zIH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChvZmZlbnNlc18yKSwKICAgIFRSVUUgfiBvZmZlbnNlc18yCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSwKICAgIFRSVUUgfiBvZmZlbnNlc18zCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc180ID09IG9mZmVuc2VzXzUgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChvZmZlbnNlc180KSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzQKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzUgPT0gb2ZmZW5zZXNfNiB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNQogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc182CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNykpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc183CiAgKSkgJT4lCiAgZmlsbChvZmZpY2VyLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChkZXNjXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGFkZHJlc3NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbHRlcighaXMubmEoaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEYXRlKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JQogIGZpbHRlcighaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSkgJT4lCiAgbXV0YXRlKE9mZmVuc2VzID0gY2FzZV93aGVuKAogICAgaXMubmEoT2ZmZW5zZXMpIH4gIk5vdCBsaXN0ZWQiLAogICAgVFJVRSB+IE9mZmVuc2VzCiAgKSkgJT4lCiAgbXV0YXRlX2FsbCh+cmVwbGFjZSguLCBpcy5uYSguKSwgIiIpKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHBhc3RlKERlc2NyaXB0aW9uLCBkZXNjXzIpKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JQogIG11dGF0ZShhZGRyZXNzX2NsZWFuID0gcGFzdGUoYEluY2lkZW50IEFkZHJlc3NgLCBhZGRyZXNzXzIpKSU+JQogIHNlbGVjdCgtRGVzY3JpcHRpb24sIC1PZmZlbnNlcywgLWBJbmNpZGVudCBBZGRyZXNzYCwgLWRlc2NfMiwgLW9mZmVuc2VzXzIsIC1vZmZlbnNlc18zLCAtb2ZmZW5zZXNfNCwgLW9mZmVuc2VzXzUsIC1vZmZlbnNlc182LCAtb2ZmZW5zZXNfNywgLWFkZHJlc3NfMikgJT4lCiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JQogIGNsZWFuX25hbWVzKCkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gc3RyX3RyaW0ob2ZmZW5zZXNfY2xlYW4pKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiUKICBkaXN0aW5jdCgpCmBgYAoKYGBge3J9CmNsZWFuXzIwMTkgPC0gcmF3XzIwMTkgJT4lCiAgcmVuYW1lKGluY2lkZW50X251bSA9IE9mZmljZXIpICU+JQogIGZpbHRlcighZ3JlcGwoIkluY2lkZW50IiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFncmVwbCgiT2ZmaWNlciIsIGluY2lkZW50X251bSkpICU+JQogIAogICNzbyB3aGF0IEknbSBnb2luZyB0byBkbyBpcyBjcmVhdGUgbW9yZSBjb2x1bW5zIGJhc2VkIG9uIGFsbCBvZiB0aGUgZGFtbiBtaXN0YWtlcyB0aGV5IG1hZGUsIHVzdWFsbHkgdGhleSBqdXN0IGhhdmUgaW5mb3JtYXRpb24gaW4gdGhlIHJvdyBiZWxvdwogIG11dGF0ZShvZmZpY2VyID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgfiBpbmNpZGVudF9udW0KICApKSAlPiUKICAKICBtdXRhdGUoZGVzY18yID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiAhaXMubmEoRGVzY3JpcHRpb24pIH4gRGVzY3JpcHRpb24sIAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShEZXNjcmlwdGlvbikgfiAiIiwKICApKSAlPiUKICBtdXRhdGUoYWRkcmVzc18yID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgfiBgSW5jaWRlbnQgQWRkcmVzc2AKICApKSAlPiUKICAKICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoRGF0ZSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfMyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEoT2ZmZW5zZXMpfiBgT2ZmZW5zZXNgLAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc180ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfMykpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc180KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc181KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc182KSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogIAojbm93IG11dGF0ZSB0aGUgb3JpZ2luYWwgY29sdW1ucyB0byBnZXQgcmlkIG9mIHRoZSAiZXh0cmEiIGluZm9ybWF0aW9uIGFuZCBicmluZyB1cCB0aGUgaW5mb3JtYXRpb24gdG8gdGhlIHByb3BlciByb3cKICBtdXRhdGUoaW5jaWRlbnRfbnVtID0gY2FzZV93aGVuKAogICAgIWlzLm5hKG9mZmljZXIpIH4gIiIsCiAgICBpcy5uYShvZmZpY2VyKSB+IGluY2lkZW50X251bQogICkpICU+JQogIG11dGF0ZShEZXNjcmlwdGlvbiA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShkZXNjXzIpIH4gIiIsCiAgICBpcy5uYShkZXNjXzIpIH4gRGVzY3JpcHRpb24KICApKSAlPiUKICBtdXRhdGUoYEluY2lkZW50IEFkZHJlc3NgID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGFkZHJlc3NfMikgfiAiIiwKICAgIGlzLm5hKGFkZHJlc3NfMikgfiBgSW5jaWRlbnQgQWRkcmVzc2AKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfMiA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzIgPT0gb2ZmZW5zZXNfMyB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQob2ZmZW5zZXNfMiksCiAgICBUUlVFIH4gb2ZmZW5zZXNfMgogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfMyA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzMgPT0gb2ZmZW5zZXNfNCB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChvZmZlbnNlc18zKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfMwogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc180ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNCA9PSBvZmZlbnNlc181IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNCkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc180CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzUgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc181ID09IG9mZmVuc2VzXzYgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzUpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzUKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzYgPT0gb2ZmZW5zZXNfNyB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc182KSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNgogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc183ID0gY2FzZV93aGVuKAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzcpKSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNwogICkpICU+JQogIGZpbGwob2ZmaWNlciwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbGwoZGVzY18yLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChhZGRyZXNzXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWx0ZXIoIWlzLm5hKGluY2lkZW50X251bSkpICU+JQogIGZpbHRlcighaXMubmEoRGF0ZSkpICU+JQogIGZpbHRlcighaXMubmEoRGVzY3JpcHRpb24pKSAlPiUKICBmaWx0ZXIoIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkpICU+JQogIG11dGF0ZShPZmZlbnNlcyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKE9mZmVuc2VzKSB+ICJOb3QgbGlzdGVkIiwKICAgIFRSVUUgfiBPZmZlbnNlcwogICkpICU+JQogIG11dGF0ZV9hbGwofnJlcGxhY2UoLiwgaXMubmEoLiksICIiKSkgJT4lCiAgbXV0YXRlKGRlc2NfY2xlYW4gPSBwYXN0ZShEZXNjcmlwdGlvbiwgZGVzY18yKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gcGFzdGUoT2ZmZW5zZXMsIG9mZmVuc2VzXzIsIG9mZmVuc2VzXzMsIG9mZmVuc2VzXzQsIG9mZmVuc2VzXzUsIG9mZmVuc2VzXzYsIG9mZmVuc2VzXzcpKSAlPiUKICBtdXRhdGUoYWRkcmVzc19jbGVhbiA9IHBhc3RlKGBJbmNpZGVudCBBZGRyZXNzYCwgYWRkcmVzc18yKSklPiUKICBzZWxlY3QoLURlc2NyaXB0aW9uLCAtT2ZmZW5zZXMsIC1gSW5jaWRlbnQgQWRkcmVzc2AsIC1kZXNjXzIsIC1vZmZlbnNlc18yLCAtb2ZmZW5zZXNfMywgLW9mZmVuc2VzXzQsIC1vZmZlbnNlc181LCAtb2ZmZW5zZXNfNiwgLW9mZmVuc2VzXzcsIC1hZGRyZXNzXzIpICU+JQogIG11dGF0ZShEYXRlID0gbWR5X2htKERhdGUpKSAlPiUKICBjbGVhbl9uYW1lcygpICU+JQogIG11dGF0ZShvZmZlbnNlc19jbGVhbiA9IHN0cl90cmltKG9mZmVuc2VzX2NsZWFuKSkgJT4lCiAgbXV0YXRlKGRlc2NfY2xlYW4gPSBzdHJfdHJpbShkZXNjX2NsZWFuKSkgJT4lCiAgZGlzdGluY3QoKQpgYGAKCmBgYHtyfQpjbGVhbl8yMDIwIDwtIHJhd18yMDIwICU+JQogIHJlbmFtZShpbmNpZGVudF9udW0gPSBPZmZpY2VyKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJJbmNpZGVudCIsIGluY2lkZW50X251bSkpICU+JQogIGZpbHRlcighZ3JlcGwoIk9mZmljZXIiLCBpbmNpZGVudF9udW0pKSAlPiUKICAKICAjc28gd2hhdCBJJ20gZ29pbmcgdG8gZG8gaXMgY3JlYXRlIG1vcmUgY29sdW1ucyBiYXNlZCBvbiBhbGwgb2YgdGhlIGRhbW4gbWlzdGFrZXMgdGhleSBtYWRlLCB1c3VhbGx5IHRoZXkganVzdCBoYXZlIGluZm9ybWF0aW9uIGluIHRoZSByb3cgYmVsb3cKICBtdXRhdGUob2ZmaWNlciA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgCiAgbXV0YXRlKGRlc2NfMiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgIWlzLm5hKERlc2NyaXB0aW9uKSB+IERlc2NyaXB0aW9uLCAKICAgIGlzLm5hKERhdGUpICYgaXMubmEoRGVzY3JpcHRpb24pIH4gIiIsCiAgKSkgJT4lCiAgbXV0YXRlKGFkZHJlc3NfMiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpIH4gYEluY2lkZW50IEFkZHJlc3NgCiAgKSkgJT4lCiAgCiAgbXV0YXRlKG9mZmVuc2VzXzIgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKERhdGUpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKE9mZmVuc2VzKX4gYE9mZmVuc2VzYCwKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNCA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzMpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc181ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNCkpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNSkpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAgIG11dGF0ZShvZmZlbnNlc183ID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShsYWcob2ZmZW5zZXNfNikpIH4gYE9mZmVuc2VzYCwKICApKSAlPiUKICAKI25vdyBtdXRhdGUgdGhlIG9yaWdpbmFsIGNvbHVtbnMgdG8gZ2V0IHJpZCBvZiB0aGUgImV4dHJhIiBpbmZvcm1hdGlvbiBhbmQgYnJpbmcgdXAgdGhlIGluZm9ybWF0aW9uIHRvIHRoZSBwcm9wZXIgcm93CiAgbXV0YXRlKGluY2lkZW50X251bSA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShvZmZpY2VyKSB+ICIiLAogICAgaXMubmEob2ZmaWNlcikgfiBpbmNpZGVudF9udW0KICApKSAlPiUKICBtdXRhdGUoRGVzY3JpcHRpb24gPSBjYXNlX3doZW4oCiAgICAhaXMubmEoZGVzY18yKSB+ICIiLAogICAgaXMubmEoZGVzY18yKSB+IERlc2NyaXB0aW9uCiAgKSkgJT4lCiAgbXV0YXRlKGBJbmNpZGVudCBBZGRyZXNzYCA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShhZGRyZXNzXzIpIH4gIiIsCiAgICBpcy5uYShhZGRyZXNzXzIpIH4gYEluY2lkZW50IEFkZHJlc3NgCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzIgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc18yID09IG9mZmVuc2VzXzMgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKG9mZmVuc2VzXzIpLAogICAgVFJVRSB+IG9mZmVuc2VzXzIKICApKSAlPiUKICAgbXV0YXRlKG9mZmVuc2VzXzMgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc18zID09IG9mZmVuc2VzXzQgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQob2ZmZW5zZXNfMykpLAogICAgVFJVRSB+IG9mZmVuc2VzXzMKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNCA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzQgPT0gb2ZmZW5zZXNfNSB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzQpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc181ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNSA9PSBvZmZlbnNlc182IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc181KSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc181CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzYgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc182ID09IG9mZmVuc2VzXzcgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNikpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzYKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQobGVhZChvZmZlbnNlc183KSkpKSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzcKICApKSAlPiUKICBmaWxsKG9mZmljZXIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGRlc2NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbGwoYWRkcmVzc18yLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsdGVyKCFpcy5uYShpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWlzLm5hKERhdGUpKSAlPiUKICBmaWx0ZXIoIWlzLm5hKERlc2NyaXB0aW9uKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApKSAlPiUKICBtdXRhdGUoT2ZmZW5zZXMgPSBjYXNlX3doZW4oCiAgICBpcy5uYShPZmZlbnNlcykgfiAiTm90IGxpc3RlZCIsCiAgICBUUlVFIH4gT2ZmZW5zZXMKICApKSAlPiUKICBtdXRhdGVfYWxsKH5yZXBsYWNlKC4sIGlzLm5hKC4pLCAiIikpICU+JQogIG11dGF0ZShkZXNjX2NsZWFuID0gcGFzdGUoRGVzY3JpcHRpb24sIGRlc2NfMikpICU+JQogIG11dGF0ZShvZmZlbnNlc19jbGVhbiA9IHBhc3RlKE9mZmVuc2VzLCBvZmZlbnNlc18yLCBvZmZlbnNlc18zLCBvZmZlbnNlc180LCBvZmZlbnNlc181LCBvZmZlbnNlc182LCBvZmZlbnNlc183KSkgJT4lCiAgbXV0YXRlKGFkZHJlc3NfY2xlYW4gPSBwYXN0ZShgSW5jaWRlbnQgQWRkcmVzc2AsIGFkZHJlc3NfMikpJT4lCiAgc2VsZWN0KC1EZXNjcmlwdGlvbiwgLU9mZmVuc2VzLCAtYEluY2lkZW50IEFkZHJlc3NgLCAtZGVzY18yLCAtb2ZmZW5zZXNfMiwgLW9mZmVuc2VzXzMsIC1vZmZlbnNlc180LCAtb2ZmZW5zZXNfNSwgLW9mZmVuc2VzXzYsIC1vZmZlbnNlc183LCAtYWRkcmVzc18yKSAlPiUKICBtdXRhdGUoRGF0ZSA9IG1keV9obShEYXRlKSkgJT4lCiAgY2xlYW5fbmFtZXMoKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBzdHJfdHJpbShvZmZlbnNlc19jbGVhbikpICU+JQogIG11dGF0ZShkZXNjX2NsZWFuID0gc3RyX3RyaW0oZGVzY19jbGVhbikpICU+JQogIGRpc3RpbmN0KCkKYGBgCgpgYGB7cn0KY2xlYW5fMjAyMSA8LSByYXdfMjAyMSAlPiUKICByZW5hbWUoaW5jaWRlbnRfbnVtID0gT2ZmaWNlcikgJT4lCiAgZmlsdGVyKCFncmVwbCgiSW5jaWRlbnQiLCBpbmNpZGVudF9udW0pKSAlPiUKICBmaWx0ZXIoIWdyZXBsKCJPZmZpY2VyIiwgaW5jaWRlbnRfbnVtKSkgJT4lCiAgCiAgI3NvIHdoYXQgSSdtIGdvaW5nIHRvIGRvIGlzIGNyZWF0ZSBtb3JlIGNvbHVtbnMgYmFzZWQgb24gYWxsIG9mIHRoZSBkYW1uIG1pc3Rha2VzIHRoZXkgbWFkZSwgdXN1YWxseSB0aGV5IGp1c3QgaGF2ZSBpbmZvcm1hdGlvbiBpbiB0aGUgcm93IGJlbG93CiAgbXV0YXRlKG9mZmljZXIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGluY2lkZW50X251bQogICkpICU+JQogIAogIG11dGF0ZShkZXNjXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmICFpcy5uYShEZXNjcmlwdGlvbikgfiBEZXNjcmlwdGlvbiwgCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKERlc2NyaXB0aW9uKSB+ICIiLAogICkpICU+JQogIG11dGF0ZShhZGRyZXNzXzIgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIAogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShEYXRlKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgaXMubmEoRGF0ZSkgJiBpcy5uYShgSW5jaWRlbnQgQWRkcmVzc2ApICYgaXMubmEoaW5jaWRlbnRfbnVtKSAmICFpcy5uYShPZmZlbnNlcyl+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBpcy5uYShEYXRlKSAmIGlzLm5hKGBJbmNpZGVudCBBZGRyZXNzYCkgJiBpcy5uYShpbmNpZGVudF9udW0pICYgIWlzLm5hKGxhZyhvZmZlbnNlc18zKSkgfiBgT2ZmZW5zZXNgLAogICkpICU+JQogICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzQpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNiA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzUpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgICBtdXRhdGUob2ZmZW5zZXNfNyA9IGNhc2Vfd2hlbigKICAgIGlzLm5hKERhdGUpICYgaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSAmIGlzLm5hKGluY2lkZW50X251bSkgJiAhaXMubmEobGFnKG9mZmVuc2VzXzYpKSB+IGBPZmZlbnNlc2AsCiAgKSkgJT4lCiAgCiNub3cgbXV0YXRlIHRoZSBvcmlnaW5hbCBjb2x1bW5zIHRvIGdldCByaWQgb2YgdGhlICJleHRyYSIgaW5mb3JtYXRpb24gYW5kIGJyaW5nIHVwIHRoZSBpbmZvcm1hdGlvbiB0byB0aGUgcHJvcGVyIHJvdwogIG11dGF0ZShpbmNpZGVudF9udW0gPSBjYXNlX3doZW4oCiAgICAhaXMubmEob2ZmaWNlcikgfiAiIiwKICAgIGlzLm5hKG9mZmljZXIpIH4gaW5jaWRlbnRfbnVtCiAgKSkgJT4lCiAgbXV0YXRlKERlc2NyaXB0aW9uID0gY2FzZV93aGVuKAogICAgIWlzLm5hKGRlc2NfMikgfiAiIiwKICAgIGlzLm5hKGRlc2NfMikgfiBEZXNjcmlwdGlvbgogICkpICU+JQogIG11dGF0ZShgSW5jaWRlbnQgQWRkcmVzc2AgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoYWRkcmVzc18yKSB+ICIiLAogICAgaXMubmEoYWRkcmVzc18yKSB+IGBJbmNpZGVudCBBZGRyZXNzYAogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc18yID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMiA9PSBvZmZlbnNlc18zIH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChvZmZlbnNlc18yKSwKICAgIFRSVUUgfiBvZmZlbnNlc18yCiAgKSkgJT4lCiAgIG11dGF0ZShvZmZlbnNlc18zID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfMyA9PSBvZmZlbnNlc180IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKG9mZmVuc2VzXzMpKSwKICAgIFRSVUUgfiBvZmZlbnNlc18zCiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzQgPSBjYXNlX3doZW4oCiAgICBvZmZlbnNlc180ID09IG9mZmVuc2VzXzUgfiAiIiwKICAgICFpcy5uYShPZmZlbnNlcykgfiBsZWFkKGxlYWQobGVhZChvZmZlbnNlc180KSkpLAogICAgVFJVRSB+IG9mZmVuc2VzXzQKICApKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfNSA9IGNhc2Vfd2hlbigKICAgIG9mZmVuc2VzXzUgPT0gb2ZmZW5zZXNfNiB+ICIiLAogICAgIWlzLm5hKE9mZmVuc2VzKSB+IGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNSkpKSksCiAgICBUUlVFIH4gb2ZmZW5zZXNfNQogICkpICU+JQogIG11dGF0ZShvZmZlbnNlc182ID0gY2FzZV93aGVuKAogICAgb2ZmZW5zZXNfNiA9PSBvZmZlbnNlc183IH4gIiIsCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKG9mZmVuc2VzXzYpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc182CiAgKSkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzXzcgPSBjYXNlX3doZW4oCiAgICAhaXMubmEoT2ZmZW5zZXMpIH4gbGVhZChsZWFkKGxlYWQobGVhZChsZWFkKGxlYWQob2ZmZW5zZXNfNykpKSkpKSwKICAgIFRSVUUgfiBvZmZlbnNlc183CiAgKSkgJT4lCiAgZmlsbChvZmZpY2VyLCAuZGlyZWN0aW9uID0gInVwIikgJT4lCiAgZmlsbChkZXNjXzIsIC5kaXJlY3Rpb24gPSAidXAiKSAlPiUKICBmaWxsKGFkZHJlc3NfMiwgLmRpcmVjdGlvbiA9ICJ1cCIpICU+JQogIGZpbHRlcighaXMubmEoaW5jaWRlbnRfbnVtKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEYXRlKSkgJT4lCiAgZmlsdGVyKCFpcy5uYShEZXNjcmlwdGlvbikpICU+JQogIGZpbHRlcighaXMubmEoYEluY2lkZW50IEFkZHJlc3NgKSkgJT4lCiAgbXV0YXRlKE9mZmVuc2VzID0gY2FzZV93aGVuKAogICAgaXMubmEoT2ZmZW5zZXMpIH4gIk5vdCBsaXN0ZWQiLAogICAgVFJVRSB+IE9mZmVuc2VzCiAgKSkgJT4lCiAgbXV0YXRlX2FsbCh+cmVwbGFjZSguLCBpcy5uYSguKSwgIiIpKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHBhc3RlKERlc2NyaXB0aW9uLCBkZXNjXzIpKSAlPiUKICBtdXRhdGUob2ZmZW5zZXNfY2xlYW4gPSBwYXN0ZShPZmZlbnNlcywgb2ZmZW5zZXNfMiwgb2ZmZW5zZXNfMywgb2ZmZW5zZXNfNCwgb2ZmZW5zZXNfNSwgb2ZmZW5zZXNfNiwgb2ZmZW5zZXNfNykpICU+JQogIG11dGF0ZShhZGRyZXNzX2NsZWFuID0gcGFzdGUoYEluY2lkZW50IEFkZHJlc3NgLCBhZGRyZXNzXzIpKSU+JQogIHNlbGVjdCgtRGVzY3JpcHRpb24sIC1PZmZlbnNlcywgLWBJbmNpZGVudCBBZGRyZXNzYCwgLWRlc2NfMiwgLW9mZmVuc2VzXzIsIC1vZmZlbnNlc18zLCAtb2ZmZW5zZXNfNCwgLW9mZmVuc2VzXzUsIC1vZmZlbnNlc182LCAtb2ZmZW5zZXNfNywgLWFkZHJlc3NfMikgJT4lCiAgbXV0YXRlKERhdGUgPSBtZHlfaG0oRGF0ZSkpICU+JQogIGNsZWFuX25hbWVzKCkgJT4lCiAgbXV0YXRlKG9mZmVuc2VzX2NsZWFuID0gc3RyX3RyaW0ob2ZmZW5zZXNfY2xlYW4pKSAlPiUKICBtdXRhdGUoZGVzY19jbGVhbiA9IHN0cl90cmltKGRlc2NfY2xlYW4pKSAlPiUKICBkaXN0aW5jdCgpCmBgYAoK</div>
 
 
 

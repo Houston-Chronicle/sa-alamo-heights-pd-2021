@@ -16,6 +16,16 @@ library(lubridate)
 
 ```{r}
 raw_2011 <- read_excel("Data/AHPD 2011 Incidents SAEN 10202022.xls", skip = 5) 
+raw_2012 <- read_excel("Data/AHPD 2012 Incidents SAEN 01202022.xls", skip = 5)
+raw_2013 <- read_excel("Data/AHPD 2013 Incidents SAEN 01202022.xls", skip = 5)
+raw_2014 <- read_excel("Data/AHPD 2014 Incidens SAEN 01202022.xls", skip = 5)
+raw_2015 <- read_excel("Data/AHPD 2015 Incidents SAEN 01202022.xls", skip = 5)
+raw_2016 <- read_excel("Data/AHPD 2016 Incidents SAEN 01202022.xls", skip = 5)
+raw_2017 <- read_excel("Data/AHPD 2017 Incidents SAEN 01202022.xls", skip = 5)
+raw_2018 <- read_excel("Data/AHPD 2018 Incidents SAEN 01212022.xls", skip = 5)
+raw_2019 <- read_excel("Data/AHPD 2019 Incidents SAEN 01212022.xls", skip = 5)
+raw_2020 <- read_excel("Data/AHPD 2020 Incidents SAEN 01212022.xls", skip = 5)
+raw_2021 <- read_excel("Data/AHPD 2021 Incidents SAEN 01212022.xls", skip = 5)
 ```
 
 
@@ -58,7 +68,7 @@ clean_2011 <- raw_2011 %>%
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
   )) %>%
   
-#now mutate the original columns to get rid of the "extra" information  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
     !is.na(officer) ~ "",
     is.na(officer) ~ incident_num
@@ -123,4 +133,1033 @@ clean_2011 <- raw_2011 %>%
   distinct()
 ```
   
- 
+```{r}
+clean_2012 <- raw_2012 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2013 <- raw_2013 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2014 <- raw_2014 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2015 <- raw_2015 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2016 <- raw_2016 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2017 <- raw_2017 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2018 <- raw_2018 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2019 <- raw_2019 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2020 <- raw_2020 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
+```{r}
+clean_2021 <- raw_2021 %>%
+  rename(incident_num = Officer) %>%
+  filter(!grepl("Incident", incident_num)) %>%
+  filter(!grepl("Officer", incident_num)) %>%
+  
+  #so what I'm going to do is create more columns based on all of the damn mistakes they made, usually they just have information in the row below
+  mutate(officer = case_when(
+    is.na(Date) ~ incident_num
+  )) %>%
+  
+  mutate(desc_2 = case_when(
+    is.na(Date) & !is.na(Description) ~ Description, 
+    is.na(Date) & is.na(Description) ~ "",
+  )) %>%
+  mutate(address_2 = case_when(
+    is.na(Date) ~ `Incident Address`
+  )) %>%
+  
+  mutate(offenses_2 = case_when(
+    !is.na(`Incident Address`) & is.na(Date) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_3 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(Offenses)~ `Offenses`,
+  )) %>%
+  mutate(offenses_4 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_3)) ~ `Offenses`,
+  )) %>%
+   mutate(offenses_5 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_4)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_6 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_5)) ~ `Offenses`,
+  )) %>%
+    mutate(offenses_7 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_6)) ~ `Offenses`,
+  )) %>%
+  
+#now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
+  mutate(incident_num = case_when(
+    !is.na(officer) ~ "",
+    is.na(officer) ~ incident_num
+  )) %>%
+  mutate(Description = case_when(
+    !is.na(desc_2) ~ "",
+    is.na(desc_2) ~ Description
+  )) %>%
+  mutate(`Incident Address` = case_when(
+    !is.na(address_2) ~ "",
+    is.na(address_2) ~ `Incident Address`
+  )) %>%
+  mutate(offenses_2 = case_when(
+    offenses_2 == offenses_3 ~ "",
+    !is.na(Offenses) ~ lead(offenses_2),
+    TRUE ~ offenses_2
+  )) %>%
+   mutate(offenses_3 = case_when(
+    offenses_3 == offenses_4 ~ "",
+    !is.na(Offenses) ~ lead(lead(offenses_3)),
+    TRUE ~ offenses_3
+  )) %>%
+  mutate(offenses_4 = case_when(
+    offenses_4 == offenses_5 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(offenses_4))),
+    TRUE ~ offenses_4
+  )) %>%
+  mutate(offenses_5 = case_when(
+    offenses_5 == offenses_6 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(offenses_5)))),
+    TRUE ~ offenses_5
+  )) %>%
+  mutate(offenses_6 = case_when(
+    offenses_6 == offenses_7 ~ "",
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(offenses_6))))),
+    TRUE ~ offenses_6
+  )) %>%
+  mutate(offenses_7 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(offenses_7)))))),
+    TRUE ~ offenses_7
+  )) %>%
+  fill(officer, .direction = "up") %>%
+  fill(desc_2, .direction = "up") %>%
+  fill(address_2, .direction = "up") %>%
+  filter(!is.na(incident_num)) %>%
+  filter(!is.na(Date)) %>%
+  filter(!is.na(Description)) %>%
+  filter(!is.na(`Incident Address`)) %>%
+  mutate(Offenses = case_when(
+    is.na(Offenses) ~ "Not listed",
+    TRUE ~ Offenses
+  )) %>%
+  mutate_all(~replace(., is.na(.), "")) %>%
+  mutate(desc_clean = paste(Description, desc_2)) %>%
+  mutate(offenses_clean = paste(Offenses, offenses_2, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7)) %>%
+  mutate(address_clean = paste(`Incident Address`, address_2))%>%
+  select(-Description, -Offenses, -`Incident Address`, -desc_2, -offenses_2, -offenses_3, -offenses_4, -offenses_5, -offenses_6, -offenses_7, -address_2) %>%
+  mutate(Date = mdy_hm(Date)) %>%
+  clean_names() %>%
+  mutate(offenses_clean = str_trim(offenses_clean)) %>%
+  mutate(desc_clean = str_trim(desc_clean)) %>%
+  distinct()
+```
+
