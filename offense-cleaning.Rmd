@@ -1,0 +1,237 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+
+```{r}
+incidents_clean <- incidents %>%
+  select(incident_num, date, incident_month, officer, address_clean, desc_clean, starts_with("offense")) %>%
+  mutate_all(~str_replace(., "/", "/ ")) %>%
+  mutate_all(~(str_replace_all(.,'[\\.,]',''))) %>%
+  mutate_all(str_trim) %>%
+  group_by(incident_num, date, officer, address_clean) %>%
+  rowid_to_column()
+
+incidents_clean
+```
+
+%>%
+  mutate(word_cnt_2 = case_when(
+    offenses_2 != "" ~ lengths(gregexpr("\\W+", offenses_2)) + 1,
+    TRUE ~ 0
+  )) %>%
+  mutate(word_cnt_3 = case_when(
+    offenses_3 != "" ~ lengths(gregexpr("\\W+", offenses_3)) + 1,
+    TRUE ~ 0
+  )) %>%
+  mutate(word_cnt_4 = case_when(
+    offenses_4 != "" ~ lengths(gregexpr("\\W+", offenses_4)) + 1,
+    TRUE ~ 0
+  )) %>%
+  mutate(word_cnt_5 = case_when(
+    offenses_5 != "" ~ lengths(gregexpr("\\W+", offenses_5)) + 1,
+    TRUE ~ 0
+  )) %>%
+  mutate(word_cnt_6 = case_when(
+    offenses_6 != "" ~ lengths(gregexpr("\\W+", offenses_6)) + 1,
+    TRUE ~ 0
+  )) %>%
+  mutate(word_cnt_7 = case_when(
+    offenses_7 != "" ~ lengths(gregexpr("\\W+", offenses_7)) + 1,
+    TRUE ~ 0
+  )) %>%
+  mutate(word_cnt_8 = case_when(
+    offenses_8 != "" ~ lengths(gregexpr("\\W+", offenses_8)) + 1,
+    TRUE ~ 0
+  )) 
+
+
+
+
+
+```{r}
+incidents_longer <- incidents_clean %>%
+  pivot_longer(cols = c(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8), names_to = "offenses_gen") %>%
+  filter(value != "") %>%
+  #filter(value != offenses_clean) %>%
+  mutate(value = str_trim(value)) %>%
+  mutate(word_cnt = lengths(gregexpr("\\W+", value)) + 1) %>%
+  mutate(word_cnt = case_when(
+    offenses_clean == value ~ 10,
+    value == "PUBLIC INTOXICATION" ~ 10, 
+    value == "IMPOUNDED VEHICLE" ~ 10, 
+    value == "CRIMINAL TRESPASS" ~ 10, 
+    value == "FORGERY" ~ 10, 
+    value == "FORGERY/ GOV" ~ 10, 
+    value == "AGGRAVATED ROBBERY" ~ 10, 
+    value == "ROBBERY" ~ 10, 
+    value == "DISTURBANCE" ~ 10, 
+    value == "PUBLIC LEWDNESS" ~ 10, 
+    value == "RECKLESS DRIVING" ~ 10, 
+    value == "INVESTIGATION / INFORMATION" ~ 10, 
+    value == "BURGLARY" ~ 10, 
+    value == "EMERGENCY DETENTION" ~ 10, 
+    value == "DEADLY CONDUCT" ~ 10, 
+    value == "HARASSMENT" ~ 10, 
+    value == "RECOVERED STOLEN" ~ 10, 
+    value == "STALKING" ~ 10, 
+    value == "RUNAWAY" ~ 10, 
+    value == "WELFARE CHECK" ~ 10, 
+    TRUE ~ word_cnt)) %>%
+   mutate(value_clean = case_when(
+    lead(word_cnt) <= 2 & word_cnt > 2 & word_cnt != 10 ~ paste(value, lead(value)),
+    word_cnt <= 2 & lag(word_cnt) >2 & lag(word_cnt) != 10 ~ "",
+    TRUE ~ value
+  )) %>%
+  mutate(value_clean = case_when(
+    lead(value_clean) == "INSPECTION CERT" ~ paste(value_clean, lead(value_clean)), 
+    lead(value_clean) == "OBSCURED LICENSE PLATE" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "INSPECTION CERT"  ~ paste(value_clean, lead(value_clean)), 
+    lead(value_clean) == "INJURY:FAMILY MEMBER" ~ paste(value_clean, lead(value_clean)), 
+    lead(value_clean) == "MONUMENT COMMUNITY CNTR" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "CONSUMP" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "TOUCH:FAMILY MEMBER" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "PROPERTY OF OTHERS" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "W/ INT INHALE" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "VACCINATION OF DOGS CATS AND FERRETS" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "VEH W/PREV CONVIC" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "THAN 4 MONTHS" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "UPON/ OVER STREETS/SIDEWALKS" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "REQUIRED" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "POSS FICT DL OR ID CERT" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "LARGE VEHICLES BOATS AND OTHER" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "ARMOR BY FELON" ~ paste(value_clean, lead(value_clean)),
+    value_clean == "FAILED TO COMPLY WITH" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "MORE PREV CONVIC" ~ paste(value_clean, lead(value_clean)),
+    TRUE ~ value_clean
+  )) %>%
+  filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value!= "REQUIREMENTS ON STRIKING UNATTENDED VEH") %>%
+  filter(value_clean != "") %>%
+  select(-word_cnt, -offenses_gen, -value, -offenses_2)
+
+incidents_longer
+
+```
+ 
+
+```{r}
+types_of_offenses <- incidents_longer %>%
+  group_by(value_clean) %>%
+  tally()
+
+types_of_offenses
+```
+
+& value_clean != "OBSCURED LICENSE PLATE"
+
+```{r}
+incidents_fixing <- incidents_longer %>%
+  filter(value_clean == "POSSESSION OF OPEN CONTAINER IN")
+
+incidents_fixing
+```
+
+```{r}
+incident_off_fix <- incidents_longer %>%
+  filter(grepl("REQUIREMENTS ON STRIKING UNATTENDED VEH", offenses_clean))
+
+incident_off_fix
+```
+
+
+more to these: 
+
+UPON/ OVER STREETS/SIDEWALKS
+
+TOUCH:FAMILY MEMBER
+
+SELL MANUFACTURE DISTRIBUTE OR
+
+SEX OFFENDERS DUTY TO REGISTER LIFE/ ANNUALLY
+
+PROPERTY OF OTHERS
+
+REQUIRED
+
+MOTOR CARRIER REGISTRATION REQUIREMENT
+
+THAN 4 MONTHS -- more to this?
+TOUCH:FAMILY MEMBER -- more to this? 
+
+MONUMENT COMMUNITY CNTR	
+
+COV - ANIMAL NUISANCE - DEFECATE ON
+COV - IMPOUNDING VEHICLES -
+
+EVADING ARREST/ DETENTION USING
+
+
+UNRESTRAINED CHILD UNDER 4 YEARS OF AGE	1			
+UPON/ OVER STREETS/SIDEWALKS	2			
+VACCINATION OF DOGS CATS AND FERRETS	2			
+VALID OPERATOR/ DRIVERS LICENSE
+W/ INT INHALE
+CONSUMP -- ? more to this?
+COV - PARKING / PROHIBITIONS OF -- ? more to this?
+DISPLAY/ POSSESS MORE THAN ONE -- ? more to this?
+FAILED TO COMPLY WITH -- ? more to this? 
+FAILURE TO IDENTIFY -- ? more to this?
+POSS CS PG 2 < 1G DRUG FREE ZONE --?
+REQUIRED --? more to this? 
+
+REQUIREMENTS ON STRIKING UNATTENDED VEH	1			
+
+
+
+
+INDECENCY W/ CHILD SEXUAL CONTACT ASSAULT -- two charges? 
+INJURY TO A CHILD W/ INT BODILY INJURY TO A -- two charges? 
+INJURY TO AN ELDERLY PERSON W/ INTBODILY INJURY TO A -- two charges? 
+
+
+DWI (JUVENILE) RECOVERED STOLEN -- two charges?
+CRIMINAL TRESPASS IN HABITATION HARASSMENT -- two charges?
+CRUELTY TO ANIMALS DISTURBANCE -- two charges?
+DEADLY CONDUCT DISCHARGE FIREARM -- two charges?
+POSS CS PG 1 < 1G FORGERY -- two charges?
+POSS CS PG 1 >= 1G < 4G CRIMINAL TRESPASS -- two charges?
+POSS CS PG 1 >= 1G < 4G EMERGENCY DETENTION	 -- two charges?
+POSS CS PG 1 >= 1G < 4G FORGERY -- two charges? 
+FAILURE TO IDENTIFY CRIMINAL TRESPASS -- two charges?
+FAILURE TO IDENTIFY FORGERY -- two charges? 
+INTERFERE WITH EMERGENCY TELEPHONE CALL BURGLARY -- two charges
+MAIL THEFT < 10 FORGERY/ GOV -- two charges? 
+MISREPRESENTATION OF AGE BY MINOR DISTURBANCE -- two charges?
+MOTOR VEHICLE THEFT BURGLARY -- two charges?
+
+POSS MARIJUANA < 2OZ PUBLIC LEWDNESS -- two charges?
+
+POSSESSION DANGEROUS DRUGS AGGRAVATED ROBBERY			
+POSSESSION DANGEROUS DRUGS FORGERY	
+POSSESSION OF A FIREARM BY A FELON BURGLARY
+POSSESSION OR DELIVERY OF DRUG PARAPHERNALIA CRIMINAL TRESPASS	2			
+POSSESSION OR DELIVERY OF DRUG PARAPHERNALIA DISTURBANCE	1			
+POSSESSION OR DELIVERY OF DRUG PARAPHERNALIA FORGERY	1			
+POSSESSION OR DELIVERY OF DRUG PARAPHERNALIA INVESTIGATION / INFORMATION	2			
+POSSESSION PROHIBITED WEAPON	20			
+POSSESSION PROHIBITED WEAPON RECKLESS DRIVING
+WARRANT ARREST - LOCAL DISTURBANCE	1			
+WARRANT ARREST - LOCAL INVESTIGATION / INFORMATION	1			
+WARRANT ARREST - OUT OF
+
+
+
+
+
+```{r}
+filter <- incidents_longer %>%
+  filter("DISPLAY/ POSSESS FICTICIOUS OPERATOR/DRIVERS LICENSE PUBLIC INTOXICATION")
+
+filter
+```
+
