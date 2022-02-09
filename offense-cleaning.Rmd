@@ -82,10 +82,16 @@ incidents_longer <- incidents_clean %>%
     value_clean == "FAILED TO COMPLY WITH" ~ paste(value_clean, lead(value_clean)),
     lead(value_clean) == "MORE PREV CONVIC" ~ paste(value_clean, lead(value_clean)),
     lead(value_clean) == "FIXTURE OR HIGHWAY LANDSCAPING" ~ paste(value_clean, lead(value_clean)),
+<<<<<<< HEAD
     lead(value_clean) == "2/ MORE PREV CONV" ~paste(value_clean, lead(value_clean)),
     TRUE ~ value_clean
   )) %>%
   filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH", value_clean != "FIXTURE OR HIGHWAY LANDSCAPING", value_clean !=  "2/ MORE PREV CONV") %>%
+=======
+    TRUE ~ value_clean
+  )) %>%
+  filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH", value_clean != "FIXTURE OR HIGHWAY LANDSCAPING") %>%
+>>>>>>> 85a0961eaac084fcf1cc785b340a0745970edc5b
   filter(value_clean != "") %>%
   select(-word_cnt, -offenses_gen, -value, -offenses_2)
 
@@ -111,7 +117,11 @@ write.csv(incidents_longer, "Data/incidents_longer_for_OpenRefine.csv")
 
 ```{r}
 incidents_fixing <- incidents_longer %>%
+<<<<<<< HEAD
   filter(value_clean == "911 INC/ SILENT/ABUSE")
+=======
+  filter(value_clean == "INDECENCY W/ CHILD SEXUAL CONTACT ASSAULT")
+>>>>>>> 85a0961eaac084fcf1cc785b340a0745970edc5b
 
 incidents_fixing
 ```
