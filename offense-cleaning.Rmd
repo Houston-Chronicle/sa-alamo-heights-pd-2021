@@ -5,6 +5,7 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 library(janitor)
+library(lubridate)
 ```
 
 
@@ -19,40 +20,11 @@ incidents_clean <- incidents %>%
 
 incidents_clean
 ```
+So, now I want a situation where I can look at the total number of offenses. The tricky part is differentiating a situation where it's one offense listed in multiple rows OR two different offenses. 
 
-%>%
-  mutate(word_cnt_2 = case_when(
-    offenses_2 != "" ~ lengths(gregexpr("\\W+", offenses_2)) + 1,
-    TRUE ~ 0
-  )) %>%
-  mutate(word_cnt_3 = case_when(
-    offenses_3 != "" ~ lengths(gregexpr("\\W+", offenses_3)) + 1,
-    TRUE ~ 0
-  )) %>%
-  mutate(word_cnt_4 = case_when(
-    offenses_4 != "" ~ lengths(gregexpr("\\W+", offenses_4)) + 1,
-    TRUE ~ 0
-  )) %>%
-  mutate(word_cnt_5 = case_when(
-    offenses_5 != "" ~ lengths(gregexpr("\\W+", offenses_5)) + 1,
-    TRUE ~ 0
-  )) %>%
-  mutate(word_cnt_6 = case_when(
-    offenses_6 != "" ~ lengths(gregexpr("\\W+", offenses_6)) + 1,
-    TRUE ~ 0
-  )) %>%
-  mutate(word_cnt_7 = case_when(
-    offenses_7 != "" ~ lengths(gregexpr("\\W+", offenses_7)) + 1,
-    TRUE ~ 0
-  )) %>%
-  mutate(word_cnt_8 = case_when(
-    offenses_8 != "" ~ lengths(gregexpr("\\W+", offenses_8)) + 1,
-    TRUE ~ 0
-  )) 
+I try to cheat the system by saying that if there are more than two words on the next line, leave it alone. If there are only two words, bring it to the previous row
 
-
-
-
+That doesn't always work out super well. So, I've been guessing and checking the system. Sometimes, I alter the word count so a charge with just two words is seen as one charge. Other times, there are offenses with three or more words that belong with the charge above. 
 
 ```{r}
 incidents_longer <- incidents_clean %>%
@@ -82,6 +54,7 @@ incidents_longer <- incidents_clean %>%
     value == "STALKING" ~ 10, 
     value == "RUNAWAY" ~ 10, 
     value == "WELFARE CHECK" ~ 10, 
+    value == "ASSAULT" ~ 10, 
     TRUE ~ word_cnt)) %>%
    mutate(value_clean = case_when(
     lead(word_cnt) <= 2 & word_cnt > 2 & word_cnt != 10 ~ paste(value, lead(value)),
@@ -108,9 +81,11 @@ incidents_longer <- incidents_clean %>%
     lead(value_clean) == "ARMOR BY FELON" ~ paste(value_clean, lead(value_clean)),
     value_clean == "FAILED TO COMPLY WITH" ~ paste(value_clean, lead(value_clean)),
     lead(value_clean) == "MORE PREV CONVIC" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "FIXTURE OR HIGHWAY LANDSCAPING" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "2/ MORE PREV CONV" ~paste(value_clean, lead(value_clean)),
     TRUE ~ value_clean
   )) %>%
-  filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value!= "REQUIREMENTS ON STRIKING UNATTENDED VEH") %>%
+  filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH", value_clean != "FIXTURE OR HIGHWAY LANDSCAPING", value_clean !=  "2/ MORE PREV CONV") %>%
   filter(value_clean != "") %>%
   select(-word_cnt, -offenses_gen, -value, -offenses_2)
 
@@ -127,20 +102,34 @@ types_of_offenses <- incidents_longer %>%
 types_of_offenses
 ```
 
+```{r}
+write.csv(incidents_longer, "Data/incidents_longer_for_OpenRefine.csv")
+```
+
+
 & value_clean != "OBSCURED LICENSE PLATE"
 
 ```{r}
 incidents_fixing <- incidents_longer %>%
-  filter(value_clean == "POSSESSION OF OPEN CONTAINER IN")
+  filter(value_clean == "911 INC/ SILENT/ABUSE")
 
 incidents_fixing
 ```
 
 ```{r}
 incident_off_fix <- incidents_longer %>%
-  filter(grepl("REQUIREMENTS ON STRIKING UNATTENDED VEH", offenses_clean))
+  filter(grepl("INDECENCY W/ CHILD SEXUAL CONTACT", offenses_clean))
 
 incident_off_fix
+```
+
+
+```{r}
+check_incidents_clean <- incidents_clean %>%
+  filter(grepl("INDECENCY W/ CHILD SEXUAL CONTACT", offenses_clean))
+
+check_incidents_clean
+  
 ```
 
 
