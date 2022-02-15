@@ -1,0 +1,75 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+```
+
+```{r}
+nibrs <- read_csv("Data/Raw/tabula-NIBRS Codes 2022.csv") %>%
+  clean_names() %>%
+  mutate(priority = NA)
+
+alamo_codes_priority <- read_excel("Data/Raw/alamo_pd_codes_priorities.xlsx") %>%
+  clean_names() %>%
+  mutate(type = NA) %>%
+  mutate(class = NA) %>%
+  mutate(nibr = NA) %>%
+  mutate(ucr = NA) %>%
+  rename(offense_description = code)
+```
+
+```{r}
+#problems(nibrs)
+```
+
+```{r}
+clean_nibrs <- nibrs %>%
+  select(-statute) %>%
+  filter(!is.na(offense_description)) %>%
+  mutate(clean_offenses = case_when(
+    is.na(lead(type)) & is.na(lead(class)) & is.na(lead(nibr)) & is.na(lead(ucr)) ~ paste(offense_description, lead(offense_description)), 
+    is.na(type) & is.na(class) & is.na(nibr) & is.na(ucr) ~ "",
+    TRUE ~ offense_description
+  )) %>%
+  filter(clean_offenses != "") %>%
+  select(clean_offenses, type, class, nibr, ucr, priority) 
+  #mutate(priority = as.character(priority))
+
+clean_nibrs
+```
+```{r}
+clean_alamo_codes_priority <- alamo_codes_priority %>%
+  select(offense_description, type, class, nibr, ucr, priority) %>%
+  rename(clean_offenses = offense_description) 
+
+clean_alamo_codes_priority
+```
+```{r}
+alamo_codes <- clean_alamo_codes_priority %>%
+  full_join(clean_nibrs, by = c("clean_offenses", "type", "class", "nibr", "ucr", "priority")) %>%
+  arrange(clean_offenses) %>%
+  mutate_all(~str_replace(., "/", "/ ")) %>%
+  mutate_all(~(str_replace_all(.,'[\\.,]',''))) %>%
+  mutate_all(str_trim) %>%
+  mutate(clean_offenses = as.character(gsub(",", "", clean_offenses))) %>%
+  mutate(clean_offenses = case_when(
+    clean_offenses == "ABANDONED/ ENDAGERED CHILD" ~ "ABANDON/ ENDANGER CHILD",
+    clean_offenses == "ALCOHOL VIOLANTIONS (NOT PI)" ~ "ALCOHOL VIOLATIONS (NO PI)",
+    clean_offenses == "COV - ANIMAL NUISANCE - ATTACK OTHER ANIMALS" ~ "ANIMAL NUISANCE",
+    clean_offenses == "ASSAULT/ FAMILY/CHOKING/STRANGULATION" ~ "ASSAULT/ FAMILY/CHOKING/STRANGULAT ION",
+    clean_offenses == "CONFISCATED DRUGS/ EQUIPMENT" ~ "CONFISCATED DRUGS/ EQUIPMENT",
+    clean_offenses == "COV - IMPOUNDING VEHICLES - ILLEGALLY PARKED OR ABANDONED" ~ "COV - IMPOUNDING VEHICLES -",
+    #clean_offenses == "DRIVING WHILE INTOXICATED MB" ~ "DRIVING WHILE INTOXICATED",
+    clean_offenses == "DWI / DUI (INCLUDES MINORS)" ~ "DWI / DUI (INCLUDES MINORS)",
+    TRUE ~ clean_offenses))
+
+alamo_codes
+```
+
+
+

@@ -82,23 +82,20 @@ incidents_longer <- incidents_clean %>%
     value_clean == "FAILED TO COMPLY WITH" ~ paste(value_clean, lead(value_clean)),
     lead(value_clean) == "MORE PREV CONVIC" ~ paste(value_clean, lead(value_clean)),
     lead(value_clean) == "FIXTURE OR HIGHWAY LANDSCAPING" ~ paste(value_clean, lead(value_clean)),
-<<<<<<< HEAD
     lead(value_clean) == "2/ MORE PREV CONV" ~paste(value_clean, lead(value_clean)),
     TRUE ~ value_clean
   )) %>%
   filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH", value_clean != "FIXTURE OR HIGHWAY LANDSCAPING", value_clean !=  "2/ MORE PREV CONV") %>%
-=======
-    TRUE ~ value_clean
-  )) %>%
   filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH", value_clean != "FIXTURE OR HIGHWAY LANDSCAPING") %>%
->>>>>>> 85a0961eaac084fcf1cc785b340a0745970edc5b
   filter(value_clean != "") %>%
-  select(-word_cnt, -offenses_gen, -value, -offenses_2)
+  select(-word_cnt, -offenses_gen, -value, -offenses_2) %>%
+  mutate(date = as.Date(date)) %>%
+  mutate(incident_month = as.Date(incident_month))
 
 incidents_longer
 
 ```
- 
+
 
 ```{r}
 types_of_offenses <- incidents_longer %>%
@@ -109,19 +106,128 @@ types_of_offenses
 ```
 
 ```{r}
-write.csv(incidents_longer, "Data/incidents_longer_for_OpenRefine.csv")
+#write.csv(incidents_longer, "Data/incidents_longer_for_OpenRefine.csv")
 ```
+
+
+```{r}
+#clean_offenses <- read_csv("Data/Clean/import/incidents-longer-for-OpenRefineD.csv") 
+```
+
+I found a small error with thefts — it was with two data points so I went ahead and cleaned that up by editing the original data point and creating two new ones
+
+```{r}
+theft_1 <- data.frame(4330, "12-01432(0)", as.Date("2012-06-27 21:59:00"), as.Date("2012-06-01"), "NUGENT J A", "4821 BROADWAY ALAMO HEIGHTS TX 78209", "THEFT < $50", "CONSUMPTION OF ALCOHOL BY A MINOR THEFT < $50", "THEFT < $50")
+
+theft_2 <- data.frame (8205, "13-02669(0)", as.Date("2013-12-23 04:18:00"), as.Date("2013-12-01"), "CARNEY M I", "5800 BLK BROADWAY ALAMO HEIGHTS TX 78209", "THEFT > $1500 < $20k", "POSSESSION DANGEROUS DRUGS POSSESSION OR DELIVERY OF DRUG PARAPHERNALIA THEFT >= $50 < $500 THEFT < $50 THEFT > $1500 < $20k POSS CS PG 1 < 1G", "THEFT < $50")
+
+names(theft_1) <- c("rowid", "incident_num", "date", "incident_month", "officer", "address_clean", "desc_clean", "offenses_clean", "value_clean")
+
+names(theft_2) <- c("rowid", "incident_num", "date", "incident_month", "officer", "address_clean", "desc_clean", "offenses_clean", "value_clean")
+
+clean_offenses <- rbind(incidents_longer, theft_1, theft_2) 
+
+clean_offenses <- clean_offenses %>%
+  mutate(value_clean = case_when(
+    value_clean == "CONSUMPTION OF ALCOHOL BY A MINOR THEFT < $50" ~ "CONSUMPTION OF ALCOHOL BY A MINOR",
+    value_clean == "THEFT >= $50 < $500 THEFT < $50" ~ "THEFT >= $50 < $500",
+    TRUE ~ value_clean
+  )) %>%
+  mutate(value_clean = case_when(
+    value_clean == "COV - OPERATE ALARM SYSTEM W/ O PERMIT" | value_clean == "COV - OPERATINGING ALARM SYSTEM W/ O PERMIT" ~ "COV - OPERATING ALARM SYSTEM W/ O PERMIT", 
+    TRUE ~ value_clean
+  ))
+```
+		
+
+
+```{r}
+types_of_offenses <- clean_offenses %>%
+  mutate(year = floor_date(date, unit = "year")) %>%
+  #filter(year == as.Date("2021-01-01"))%>%
+  group_by(value_clean) %>%
+  tally()
+
+types_of_offenses
+```
+
+```{r}
+full_incident_code_desc <- clean_offenses %>%
+  mutate(year = floor_date(date, unit = "year")) %>%
+  filter(year == as.Date("2021-01-01")) %>%
+  inner_join(alamo_codes, by = c("value_clean" = "clean_offenses")) %>%
+  select(-rowid)
+
+full_incident_code_desc
+```
+
+```{r}
+write_csv(full_incident_code_desc, "Data/Exports/full_incident_code_desc_2021.csv")
+```
+
+
+
+```{r}
+offenses_2020 <- types_of_offenses_clean %>%
+  filter(year == as.Date("2020-01-01")) %>%
+  group_by(value_clean) %>%
+  tally() %>%
+  arrange(desc(n)) %>%
+  rename(count_2020 = n)
+
+offenses_2020 <- offenses_2020[1:10,]
+
+offenses_2020
+  
+```
+
+```{r}
+offenses_2020_in_21 <- types_of_offenses_clean %>%
+  filter(year == as.Date("2021-01-01")) %>%
+  group_by(value_clean) %>%
+  tally() %>%
+  rename(count_2021 = n) %>%
+  inner_join(offenses_2020)
+
+offenses_2020_in_21
+```
+
+```{r}
+addresses_2021 <- types_of_offenses_clean %>%
+  filter(year == as.Date("2021-01-01")) %>%
+  group_by(address_clean) %>%
+  tally() %>%
+  arrange(desc(n))
+
+addresses_2021
+```
+
+
+```{r}
+offenses_2021 <- types_of_offenses_clean %>%
+  filter(year == as.Date("2021-01-01")) %>%
+  group_by(value_clean, value_clean_OG) %>%
+  tally() %>%
+  arrange(desc(n))
+
+offenses_2021
+```
+
+
+```{r}
+write.csv(offenses_2020_in_21, "Data/offenses_2020_in_21.csv")
+write.csv(offenses_2021, "Data/offenses_2021.csv")
+```
+
 
 
 & value_clean != "OBSCURED LICENSE PLATE"
 
 ```{r}
 incidents_fixing <- incidents_longer %>%
-<<<<<<< HEAD
-  filter(value_clean == "911 INC/ SILENT/ABUSE")
-=======
+  filter(value_clean == "911 INC/ SILENT/ABUSE") 
   filter(value_clean == "INDECENCY W/ CHILD SEXUAL CONTACT ASSAULT")
->>>>>>> 85a0961eaac084fcf1cc785b340a0745970edc5b
+
 
 incidents_fixing
 ```
