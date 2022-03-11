@@ -11,15 +11,10 @@ library(readxl)
 
 ```{r}
 nibrs <- read_csv("Data/Raw/tabula-NIBRS Codes 2022.csv") %>%
-  clean_names() %>%
-  mutate(priority = NA)
+  clean_names() 
 
 alamo_codes_priority <- read_excel("Data/Raw/alamo_pd_codes_priorities.xlsx") %>%
   clean_names() %>%
-  mutate(type = NA) %>%
-  mutate(class = NA) %>%
-  mutate(nibr = NA) %>%
-  mutate(ucr = NA) %>%
   rename(offense_description = code)
 ```
 
@@ -37,21 +32,21 @@ clean_nibrs <- nibrs %>%
     TRUE ~ offense_description
   )) %>%
   filter(clean_offenses != "") %>%
-  select(clean_offenses, type, class, nibr, ucr, priority) 
+  select(clean_offenses, type, class, nibr, ucr) 
   #mutate(priority = as.character(priority))
 
 clean_nibrs
 ```
 ```{r}
 clean_alamo_codes_priority <- alamo_codes_priority %>%
-  select(offense_description, type, class, nibr, ucr, priority) %>%
+  #select(offense_description) %>%
   rename(clean_offenses = offense_description) 
 
 clean_alamo_codes_priority
 ```
 ```{r}
 alamo_codes <- clean_alamo_codes_priority %>%
-  full_join(clean_nibrs, by = c("clean_offenses", "type", "class", "nibr", "ucr", "priority")) %>%
+  full_join(clean_nibrs, by = c("clean_offenses")) %>%
   arrange(clean_offenses) %>%
   mutate_all(~str_replace(., "/", "/ ")) %>%
   mutate_all(~(str_replace_all(.,'[\\.,]',''))) %>%
