@@ -74,6 +74,9 @@ clean_2011 <- raw_2011 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -131,6 +134,10 @@ clean_2011 <- raw_2011 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -144,7 +151,7 @@ clean_2011 <- raw_2011 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -206,6 +213,9 @@ clean_2012 <- raw_2012 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -263,6 +273,10 @@ clean_2012 <- raw_2012 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -276,7 +290,7 @@ clean_2012 <- raw_2012 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -338,6 +352,9 @@ clean_2013 <- raw_2013 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -395,6 +412,10 @@ clean_2013 <- raw_2013 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -408,7 +429,7 @@ clean_2013 <- raw_2013 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -470,6 +491,9 @@ clean_2014 <- raw_2014 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -527,6 +551,10 @@ clean_2014 <- raw_2014 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -540,7 +568,7 @@ clean_2014 <- raw_2014 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -602,6 +630,9 @@ clean_2015 <- raw_2015 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -659,6 +690,10 @@ clean_2015 <- raw_2015 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -672,7 +707,7 @@ clean_2015 <- raw_2015 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -693,7 +728,7 @@ clean_2015 <- raw_2015 %>%
 
 ```{r}
 clean_2016 <- raw_2016 %>%
-  rename(incident_num = Officer) %>%
+ rename(incident_num = Officer) %>%
   filter(!grepl("Incident", incident_num)) %>%
   filter(!grepl("Officer", incident_num)) %>%
   
@@ -734,6 +769,9 @@ clean_2016 <- raw_2016 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -791,6 +829,10 @@ clean_2016 <- raw_2016 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -804,7 +846,7 @@ clean_2016 <- raw_2016 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -866,6 +908,9 @@ clean_2017 <- raw_2017 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -923,6 +968,10 @@ clean_2017 <- raw_2017 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -936,7 +985,7 @@ clean_2017 <- raw_2017 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -998,6 +1047,9 @@ clean_2018 <- raw_2018 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -1055,6 +1107,10 @@ clean_2018 <- raw_2018 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -1068,7 +1124,7 @@ clean_2018 <- raw_2018 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -1130,6 +1186,9 @@ clean_2019 <- raw_2019 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -1187,6 +1246,10 @@ clean_2019 <- raw_2019 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -1200,7 +1263,7 @@ clean_2019 <- raw_2019 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -1262,6 +1325,9 @@ clean_2020 <- raw_2020 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -1319,6 +1385,10 @@ clean_2020 <- raw_2020 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -1332,7 +1402,7 @@ clean_2020 <- raw_2020 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
@@ -1394,6 +1464,9 @@ clean_2021 <- raw_2021 %>%
   mutate(offenses_8 = case_when(
     is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_7)) ~ `Offenses`,
   )) %>%
+  mutate(offenses_9 = case_when(
+    is.na(Date) & is.na(`Incident Address`) & is.na(incident_num) & !is.na(lag(offenses_8)) ~ `Offenses`,
+  )) %>%
   
 #now mutate the original columns to get rid of the "extra" information and bring up the information to the proper row
   mutate(incident_num = case_when(
@@ -1451,6 +1524,10 @@ clean_2021 <- raw_2021 %>%
     !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(offenses_8))))))),
     TRUE ~ offenses_8
   )) %>%
+  mutate(offenses_9 = case_when(
+    !is.na(Offenses) ~ lead(lead(lead(lead(lead(lead(lead(lead(offenses_9)))))))),
+    TRUE ~ offenses_9
+  )) %>%
   fill(officer, .direction = "up") %>%
   fill(address_2, .direction = "up") %>%
   filter(!is.na(incident_num)) %>%
@@ -1464,19 +1541,18 @@ clean_2021 <- raw_2021 %>%
   mutate_all(~replace(., is.na(.), "")) %>%
   mutate(desc_clean = paste(Description, desc_2, desc_3)) %>%
   mutate(offenses_clean_p1 = paste(Offenses, offenses_2)) %>%
-  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8)) %>%
+  mutate(offenses_clean = paste(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9)) %>%
   mutate(address_clean = paste(`Incident Address`, address_2))%>%
   select(-Description, -Offenses, -`Incident Address`, -desc_2, -desc_3, -address_2) %>%
   mutate(Date = mdy_hm(Date)) %>%
   clean_names() %>%
   mutate(offenses_clean = str_trim(offenses_clean)) %>%   
   mutate(offenses_clean_p1 = str_trim(offenses_clean_p1))%>%
-  mutate(offenses_clean_p1 = str_trim(offenses_clean_p1))%>%
    mutate(offenses_clean = case_when(
     offenses_clean == "Not listed" & !is.na(desc_clean) ~ desc_clean, 
     TRUE ~ offenses_clean
   )) %>%
-  mutate(offenses_clean_p1 = case_when(
+   mutate(offenses_clean_p1 = case_when(
     offenses_clean_p1 == "Not listed" & !is.na(desc_clean) ~ desc_clean, 
     TRUE ~ offenses_clean_p1
   )) %>%

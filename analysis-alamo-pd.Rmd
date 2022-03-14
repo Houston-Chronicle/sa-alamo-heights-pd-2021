@@ -13,16 +13,37 @@ library(readxl)
 Uploading the codes (That is the official police code list, approved by the chief.)
 
 ```{r}
-codes_classified <- read_excel("Data/Exports/Alamo_codes_2011_thru_2021_LS_labeled_categories.xlsx") %>%
-  select(1:4) %>%
-  select(-2) %>%
-  rename("priority" = "priority (defined by Express-News)") %>%
-  clean_names()
+codes_classified <- read_excel("Data/Exports/FOR REVIEW/march_14_codes_official.xlsx", sheet = 2)
 
-head(codes_classified)
+codes_classified
 ```
 
- So, I'm going to use it to look at:
+```{r}
+clean_codes_classified <- codes_classified %>%
+  select(value_clean, priority, property_crime) %>%
+  distinct()
+
+clean_codes_classified
+```
+```{r}
+values_doubled_check <- codes_classified %>%
+  select(value_clean) %>%
+  distinct()
+
+values_doubled_check
+```
+
+Perfect. Everything should be great
+
+```{r}
+full_incidents_pd_approved <- clean_offenses %>%
+  inner_join(clean_codes_classified, by = "value_clean")
+
+full_incidents_pd_approved
+```
+
+
+So, I'm going to use it to look at:
 
 percent of each category of priority of crimes throughout the years
 percent of property crimes throughout the years
@@ -30,7 +51,7 @@ percent of property crimes throughout the years
 First, this is just a general analysis of the crimes, what went up, what went down
 
 ```{r}
-year_count <- full_incident_code_desc %>%
+year_count <- full_incidents_pd_approved %>%
   mutate(clean_year = paste("y", substr(year, 1, 4), sep = "_")) %>%
   group_by(value_clean, clean_year) %>%
   tally() %>%
@@ -55,18 +76,9 @@ So there can be multiple offenses in an incident, looking at the offenses all to
 
 First, we group the list by the sorted codes
 
-```{r}
-chief_approved <- full_incident_code_desc %>%
-  select(-priority)%>%
-  inner_join(codes_classified, by = "value_clean")
-
-head(chief_approved)
-```
-Now, we group by year and offense
-
 
 ```{r}
-priority_year_grouping <- chief_approved %>%
+priority_year_grouping <- full_incidents_pd_approved %>%
   group_by(priority, year) %>%
   tally() %>%
   pivot_wider(names_from = priority, values_from = n) %>%
@@ -83,7 +95,7 @@ priority_year_grouping
 Cool, now we look at property crime
 
 ```{r}
-property_crime_year_grouping <- chief_approved %>%
+property_crime_year_grouping <- full_incidents_pd_approved %>%
   group_by(property_crime, year) %>%
   tally() %>%
   pivot_wider(names_from = property_crime, values_from = n) %>%
@@ -102,7 +114,7 @@ this is a little bit harder. We need to look at each incident, which could have 
 So, I basically want to only look at incidents in this situation, so I will ungroup and narrow down my columns to remove any potential dupliates
 
 ```{r}
-chief_approved_incident <- chief_approved %>%
+chief_approved_incident <- full_incidents_pd_approved %>%
   ungroup() %>%
   select(-desc_clean, -class, -nibr, -type, -ucr, -property_crime, -officer, -incident_month, -address_clean, -value_clean)
 
@@ -223,7 +235,7 @@ priority_year_grouping_incident
 ###incident: property crimes
 
 ```{r}
-chief_approved_incident_property <- chief_approved %>%
+chief_approved_incident_property <- full_incidents_pd_approved %>%
   ungroup() %>%
   select(-desc_clean, -class, -nibr, -type, -ucr, -priority, -officer, -incident_month, -address_clean, -value_clean)
 
@@ -305,11 +317,13 @@ incident_property_crime_grouping
 
 
 ```{r}
-#write_csv(year_count, "Data/Exports/year_count.csv")
+write_csv(year_count, "Data/Exports/year_count.csv")
 write_csv(property_crime_year_grouping, "Data/Exports/property_crime_year_grouping.csv")
 write_csv(priority_year_grouping, "Data/Exports/priority_year_grouping.csv")
 write_csv(incident_property_crime_grouping, "Data/Exports/incident_property_crime_grouping.csv")
 write_csv(priority_year_grouping_incident, "Data/Exports/priority_year_grouping_incident.csv")
+
+#write_csv(codes_classified, "Data/Exports/Alamo_codes_2011_thru_2021_LS_labeled_categories.csv")
 
 ```
 

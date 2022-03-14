@@ -8,7 +8,7 @@ library(janitor)
 library(lubridate)
 ```
 
-getting the real codes!
+getting the real codes and associating them with the offenses listed ... but the trouble is that the offenses listed are in a group and not one by one
 
 ```{r}
 incidents_clean <- incidents %>%
@@ -27,10 +27,16 @@ I try to cheat the system by saying that if there are more than two words on the
 
 That doesn't always work out super well. So, I've been guessing and checking the system. Sometimes, I alter the word count so a charge with just two words is seen as one charge. Other times, there are offenses with three or more words that belong with the charge above. 
 
+So I kinda start by altering the solo charges that are two words long and make them 10 words. Then the long-name charges that have more than one or two words on the next line, make that "next line" go back to the first line ... then I delete any phrase that matches that "next line"
+
+So if whole charge were "failed to pick up" (first line) "TRASH WEEDS OR OTHER MATTER" (second line) I'd say that when the value equals TRASH WEEDS OR OTHER MATTER, have that phrase go up to the previous line, and then I'd filter it out. 
+
+BUT THEN I eventually realized that I could just make that phrase equal to one word. But I already did that work. So now we have this hodge podge: 
+
 
 ```{r}
 incidents_longer <- incidents_clean %>%
-  pivot_longer(cols = c(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8), names_to = "offenses_gen") %>%
+  pivot_longer(cols = c(offenses_clean_p1, offenses_3, offenses_4, offenses_5, offenses_6, offenses_7, offenses_8, offenses_9), names_to = "offenses_gen") %>%
   filter(value != "") %>%
   #filter(value != offenses_clean) %>%
   mutate(value = str_trim(value)) %>%
@@ -67,6 +73,28 @@ incidents_longer <- incidents_clean %>%
     value == "VALID OPERATOR/ DRIVERS LICENSE" ~ 1, 
     value == "IN FEAR OF SBI" ~ 1,
     value == "VEH W/ PREV CONVIC" ~ 1,
+    value == "TRASH WEEDS OR OTHER MATTER" ~ 1,
+    value == "LARGE VEHICLES BOATS AND OTHER" ~ 1,
+    value == "INSPECTION CERT" ~ 1, 
+    value == "OBSCURED LICENSE PLATE" ~ 1, 
+    value == "INJURY:FAMILY MEMBER" ~ 1, 
+    value == "MONUMENT COMMUNITY CNTR" ~ 1, 
+    value == "CONSUMP" ~ 1, 
+    value == "TOUCH:FAMILY MEMBER" ~ 1,
+    value == "PROPERTY OF OTHERS" ~ 1,
+    value == "W/ INT INHALE" ~ 1,
+    value == "VACCINATION OF DOGS CATS AND FERRETS" ~ 1, 
+    value == "VEH W/PREV CONVIC" ~ 1,
+    value == "THAN 4 MONTHS" ~ 1,
+    value == "UPON/ OVER STREETS/SIDEWALKS" ~ 1,
+    value == "REQUIRED" ~ 1,
+    value == "POSS FICT DL OR ID CERT" ~ 1,
+    value == "ARMOR BY FELON" ~ 1, 
+    value == "REQUIREMENTS ON STRIKING UNATTENDED VEH" ~ 1, 
+    value == "MORE PREV CONVIC" ~ 1, 
+    value == "FIXTURE OR HIGHWAY LANDSCAPING" ~ 1, 
+    value == "2/ MORE PREV CONV" ~ 1, 
+    value == "EVIDENCE - ALTER/ DESTROY/CONCEAL" ~ 1, 
     grepl("INFORMATION", value) & grepl("INVESTIGATION", value) ~ 10,
     TRUE ~ word_cnt)) %>%
    mutate(value_clean = case_when(
@@ -75,32 +103,13 @@ incidents_longer <- incidents_clean %>%
     TRUE ~ value
   )) %>%
   mutate(value_clean = case_when(
-    lead(value_clean) == "INSPECTION CERT" ~ paste(value_clean, lead(value_clean)), 
-    lead(value_clean) == "OBSCURED LICENSE PLATE" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "INSPECTION CERT"  ~ paste(value_clean, lead(value_clean)), 
-    lead(value_clean) == "INJURY:FAMILY MEMBER" ~ paste(value_clean, lead(value_clean)), 
-    lead(value_clean) == "MONUMENT COMMUNITY CNTR" ~ paste(value_clean, lead(value_clean)),
     lead(value_clean) == "CONSUMP" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "TOUCH:FAMILY MEMBER" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "PROPERTY OF OTHERS" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "W/ INT INHALE" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "VACCINATION OF DOGS CATS AND FERRETS" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "VEH W/PREV CONVIC" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "THAN 4 MONTHS" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "UPON/ OVER STREETS/SIDEWALKS" ~ paste(value_clean, lead(value_clean)),
     lead(value_clean) == "REQUIRED" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "POSS FICT DL OR ID CERT" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "LARGE VEHICLES BOATS AND OTHER" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "ARMOR BY FELON" ~ paste(value_clean, lead(value_clean)),
-    value_clean == "FAILED TO COMPLY WITH" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "MORE PREV CONVIC" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "FIXTURE OR HIGHWAY LANDSCAPING" ~ paste(value_clean, lead(value_clean)),
-    lead(value_clean) == "2/ MORE PREV CONV" ~paste(value_clean, lead(value_clean)),
-    value_clean == ("TAMPER/ FABRICATE PHYSICAL") ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "VACCINATION OF DOGS CATS AND FERRETS" ~ paste(value_clean, lead(value_clean)),
+    lead(value_clean) == "REQUIREMENTS ON STRIKING UNATTENDED VEH" ~ paste(value_clean, lead(value_clean)),
     TRUE ~ value_clean
   )) %>%
-  filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH", value_clean != "FIXTURE OR HIGHWAY LANDSCAPING", value_clean !=  "2/ MORE PREV CONV") %>%
-  filter(value_clean != "INSPECTION CERT" & value_clean != "INJURY:FAMILY MEMBER" & value_clean != "MONUMENT COMMUNITY CNTR" & value_clean != "CONSUMP" & value_clean != "TOUCH:FAMILY MEMBER" & value_clean != "PROPERTY OF OTHERS" & value_clean != "W/ INT INHALE" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "VEH W/PREV CONVIC" & value_clean != "THAN 4 MONTHS" & value_clean != "UPON/ OVER STREETS/SIDEWALKS" & value_clean != "REQUIRED" & value_clean != "POSS FICT DL OR ID CERT" & value_clean != "OBSCURED LICENSE PLATE", value_clean != "ARMOR BY FELON", value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH", value_clean != "FIXTURE OR HIGHWAY LANDSCAPING", value_clean != "EVIDENCE - ALTER/ DESTROY/CONCEAL") %>%
+  filter(value_clean != "CONSUMP" & value_clean != "REQUIRED" & value_clean != "VACCINATION OF DOGS CATS AND FERRETS" & value_clean != "REQUIREMENTS ON STRIKING UNATTENDED VEH") %>%
   filter(value_clean != "") %>%
   select(-word_cnt, -offenses_gen, -value, -offenses_2) %>%
   mutate(date = as.Date(date)) %>%
@@ -110,19 +119,7 @@ incidents_longer
 
 ```
 
-
-```{r}
-#write.csv(incidents_longer, "Data/incidents_longer_for_OpenRefine.csv")
-```
-
-
-```{r}
-#clean_offenses <- read_csv("Data/Clean/import/incidents-longer-for-OpenRefineD.csv") 
-```
-
-I found a small error with thefts — it was with two data points so I went ahead and cleaned that up by editing the original data point and creating two new ones
-
-
+ 
 
 ```{r}
 clean_offenses <- incidents_longer %>%
@@ -141,7 +138,13 @@ clean_offenses <- incidents_longer %>%
     value_clean == "FRAUDULENT USE/ POSS OF IDENTIFYING" ~ "FRAUDULENT USE/ POSS OF IDENTIFYING INFO",
     value_clean == "POSSESSION OF DRUG PARAPHERNALIA" | value_clean == "POSSESSION OR DELIVERY OF DRUG" | value_clean == "POSESSION OF DRUG PARAPHENALIA" ~  "POSSESSION OR DELIVERY OF DRUG PARAPHERNALIA",
     value_clean == "RUNAWAY" ~ "RUNAWAY/ MISSING PERSON",
-    TRUE ~ value_clean)) 
+    value_clean == "TAMPER/ FABRICATE PHYSICAL EVIDENCE - ALTER/ DESTROY/CONCEAL" ~ "TAMPER/ FABRICATE PHYSICAL EVIDENCE - ALTER/DESTROY/CONCEAL",
+    value_clean == "TRAFFIC ACCIDENT" ~ "ACCIDENT MOTOR VEHICLE",
+    value_clean == "VEHICLE ACCIDENT"~ "ACCIDENT MOTOR VEHICLE",
+    value_clean == "POSS USE ABUSABLE/ AEROSOL PAINT W/ INT INHALE" ~ "POSS USE ABUSABLE/ AEROSOL PAINT W/INT INHALE",
+    value_clean == "WARRANT ARREST - OUT OF" ~ "WARRANT ARREST - OUT OF JURISDICTION",
+    value_clean == "investigation/ information" ~ "INVESTIGATION/ INFORMATION",
+    TRUE ~ value_clean))  
 
 # I could attempt to do something to limit two instances where investigation/information are in the thing
  # mutate(value_clean_2 == case_when(
@@ -186,7 +189,7 @@ all_incident_code_desc <- clean_offenses %>%
   #filter(year == as.Date("2021-01-01")) %>%
   inner_join(alamo_codes, by = c("value_clean" = "clean_offenses")) %>%
   select(-rowid) %>%
-  group_by(value_clean) %>%
+  group_by(value_clean, priority, type, class, nibr, ucr) %>%
   tally()
   #mutate(street = substr(address_clean, 1, nchar(address_clean)-22)) %>%
   #mutate(city_state_zip = str_sub(address_clean, -22, -1)) %>%
@@ -206,7 +209,13 @@ missing_incident_code_desc <- clean_offenses %>%
   anti_join(alamo_codes, by = c("value_clean" = "clean_offenses")) %>%
   select(-rowid) %>%
   group_by(value_clean) %>%
-  tally()
+  tally() %>%
+  mutate(priority = "UNKNOWN") %>%
+  mutate(class = "UNKNOWN") %>%
+  mutate(type = "UNKNOWN") %>%
+  mutate(nibr = "UNKNOWN") %>%
+  mutate(ucr = "UNKNOWN") 
+  
   #mutate(street = substr(address_clean, 1, nchar(address_clean)-22)) %>%
   #mutate(city_state_zip = str_sub(address_clean, -22, -1)) %>%
   #mutate(city = substr(city_state_zip, 1, 13)) %>%
@@ -228,49 +237,47 @@ missing_incident_code_desc_FULL <- clean_offenses %>%
 missing_incident_code_desc_FULL
 ```
 
-
-Okay, let's categorize by priority/class
+## um so i kinda messed up with some documents so this is me reworking some shit so i can get categories approved by the chief
 
 ```{r}
-classified <- full_incident_code_desc %>%
-  mutate(category = case_when(
-    class == "FELONY" | priority == "HIGH" | priority == "VERY HIGH" ~ "high",
-    class == "MISD" | priority == "MED" ~ "medium",
-    class == "OTHER" | priority == "LOW" ~ "low", 
-    TRUE ~ "unknown"
-  ))
-
-classified
+#police_proof <- rbind(all_incident_code_desc, missing_incident_code_desc) %>%
+ # ungroup() %>%
+#  select(-priority, -type, -ucr, -nibr, -class)
 ```
 
 ```{r}
-classified_codes <- full_incident_code_desc %>%
-  group_by(value_clean, type, nibr, ucr, class, priority) %>%
-  tally()
-
-classified_codes
+codes_b4_messup <- read_excel("Data/Exports/Alamo_codes_2011_thru_2021_LS_labeled_categories.xls")
 ```
 
-EXPORT THIS LIST OF CLASSIFIED CODES with the FBI and PD info ... then use that to give your categorizations
-
+```{r}
+codes_after_messup <- read_excel("Data/Exports/FINAL Offcial_SAEN_AHPD_codes_PD REVIEW.xls") %>%
+  select(-priority, -ls_class)
+```
 
 ```{r}
-#clean_geocoded <- read_csv("Data/full_incident_code_desc_2021_geocodio_2d93e84d1b6357f5f0d652bef414d4567c7565dc.csv") %>%
- # select(-value_clean, -desc_clean, -type, -nibr, -ucr, -priority, -class) %>%
-#  distinct()
-
-#clean_geocoded
+codes_omg_what_did_i_do <- read_excel("Data/Exports/Offcial_SAEN_AHPD_codes.xlsx") %>%
+  select(value_clean, "property crime")
 ```
 
 
 ```{r}
-#write_csv(clean_geocoded, "Data/Exports/clean_geocoded.csv")
+police_proof <- codes_after_messup %>%
+  inner_join(codes_omg_what_did_i_do, by = "value_clean")
+
+police_proof
 ```
 
 
 ```{r}
-write_csv(missing_incident_code_desc, "Data/Exports/missing_incident_code_desc__not_paired_with_alamo_codes.csv")
-write_csv(classified_codes, "Data/Exports/Alamo_codes_2011_thru_2021_LS_labeled_categories.csv")
+#police_proof <- police_proof %>%
+ # left_join(codes_b4_messup, by = c("value_clean"))
+```
+
+
+
+
+```{r}
+write_csv(police_proof, "Data/Exports/Offcial_SAEN_AHPD_codes.csv")
 ```
 
 
