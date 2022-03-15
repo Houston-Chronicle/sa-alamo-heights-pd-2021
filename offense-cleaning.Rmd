@@ -27,11 +27,13 @@ I try to cheat the system by saying that if there are more than two words on the
 
 That doesn't always work out super well. So, I've been guessing and checking the system. Sometimes, I alter the word count so a charge with just two words is seen as one charge. Other times, there are offenses with three or more words that belong with the charge above. 
 
+####My process
+
 So I kinda start by altering the solo charges that are two words long and make them 10 words. Then the long-name charges that have more than one or two words on the next line, make that "next line" go back to the first line ... then I delete any phrase that matches that "next line"
 
 So if whole charge were "failed to pick up" (first line) "TRASH WEEDS OR OTHER MATTER" (second line) I'd say that when the value equals TRASH WEEDS OR OTHER MATTER, have that phrase go up to the previous line, and then I'd filter it out. 
 
-BUT THEN I eventually realized that I could just make that phrase equal to one word. But I already did that work. So now we have this hodge podge: 
+THEN I eventually realized that I could just make that phrase equal to one word, and I thought that may be more efficient. So I did that, but sometimes it didn't cooperate, so I went back to the "old way"
 
 
 ```{r}
@@ -143,7 +145,7 @@ clean_offenses <- incidents_longer %>%
     value_clean == "VEHICLE ACCIDENT"~ "ACCIDENT MOTOR VEHICLE",
     value_clean == "POSS USE ABUSABLE/ AEROSOL PAINT W/ INT INHALE" ~ "POSS USE ABUSABLE/ AEROSOL PAINT W/INT INHALE",
     value_clean == "WARRANT ARREST - OUT OF" ~ "WARRANT ARREST - OUT OF JURISDICTION",
-    value_clean == "investigation/ information" ~ "INVESTIGATION/ INFORMATION",
+    value_clean == "investigation/ information" ~ "INVESTIGATION / INFORMATION",
     TRUE ~ value_clean))  
 
 # I could attempt to do something to limit two instances where investigation/information are in the thing
@@ -153,6 +155,9 @@ clean_offenses <- incidents_longer %>%
 
 ```
 		
+
+## Prepping to make codes for the police
+
 Here is the list of offenses I have in my clean dataset
 
 ```{r}
@@ -277,7 +282,7 @@ police_proof
 
 
 ```{r}
-write_csv(police_proof, "Data/Exports/Offcial_SAEN_AHPD_codes.csv")
+#write_csv(police_proof, "Data/Exports/Offcial_SAEN_AHPD_codes.csv")
 ```
 
 

@@ -1,0 +1,414 @@
+value_clean,y_2011,y_2012,y_2013,y_2014,y_2015,y_2016,y_2017,y_2018,y_2019,y_2020,y_2021,pchange_21_20
+Poss Cs Pg 2 < 1g,3,2,0,1,0,4,4,5,10,1,11,1000
+Poss Cs Pg 2 >= 1g < 4g,0,0,0,0,0,2,2,2,1,1,6,500
+Unlawfully Carrying A Weapon,2,5,0,1,5,15,8,5,2,2,11,450
+Welfare Check,4,3,11,2,4,2,11,5,10,37,198,435.13513513513516
+Animal Program (Tnr),113,59,46,32,26,31,11,7,6,3,15,400
+Interfere With Emergency Telephone Call,2,1,1,2,0,5,3,0,4,1,5,400
+Animal Impound (Non-Cov),13,6,10,11,8,24,17,6,12,5,24,380
+Assault Causes Bodily Injury:family Member,14,12,12,10,10,11,3,9,9,4,17,325
+Missing Person,4,3,3,2,0,1,2,3,4,2,7,250
+Credit Card Or Debit Card Abuse,6,5,1,4,4,5,8,6,3,1,3,200
+Cov - Animal Nuisance - Dog Free Of Restraint,98,98,111,99,118,96,116,89,54,34,91,167.64705882352942
+Poss Cs Pg 1 >= 1g < 4g,2,2,5,1,3,13,5,5,2,5,13,160
+Fraudulent Use/ Poss Of Identifying Info,3,9,3,16,32,30,16,16,23,13,33,153.84615384615387
+Assist Other Agency,36,60,43,52,54,64,35,13,17,21,48,128.57142857142858
+Harassment,8,4,4,8,3,6,7,10,9,7,15,114.28571428571428
+Possession Or Delivery Of Drug Paraphernalia,92,83,91,116,149,189,117,102,157,66,140,112.12121212121211
+Possession Dangerous Drugs,4,1,3,6,7,13,15,7,8,3,6,100
+Reckless Driving,0,1,0,1,0,5,0,1,1,1,2,100
+Terroristic Threats - Place Public In Fear Of Sbi,0,0,0,0,0,2,0,0,0,1,2,100
+Tamper W/ Gov't Record,0,0,0,0,0,0,2,1,0,1,2,100
+Forgery/ Gov,0,0,0,0,0,0,0,0,0,1,2,100
+Accident Motor Vehicle,75,74,63,70,69,40,53,42,71,60,113,88.33333333333333
+Driving While Intoxicated >= 015 Ma,1,30,7,4,8,6,4,4,5,5,9,80
+Evading Arrest/ Detention,2,4,4,9,7,5,7,4,7,5,9,80
+Emergency Detention,14,8,16,15,13,31,37,29,40,27,48,77.77777777777779
+Driving While Intoxicated Mb,73,57,22,24,35,23,20,10,18,12,21,75
+Violation Of Protective Order Or Magistrate's Order,2,3,1,4,0,1,2,2,2,4,7,75
+Poss Cs Pg 1 < 1g,4,2,7,5,20,20,29,12,23,7,12,71.42857142857143
+Warrant Arrest - Out Of Jurisdiction,69,75,76,82,88,107,82,61,72,44,75,70.45454545454545
+Impounded Vehicle,387,506,552,666,731,891,575,413,501,129,215,66.66666666666666
+Unauthorized Use Motor Vehicle,3,4,1,4,8,6,8,4,9,3,5,66.66666666666666
+Assault,0,1,1,0,2,2,1,2,6,3,5,66.66666666666666
+Warrant Arrest - Local,0,0,0,1,1,2,107,62,106,30,50,66.66666666666666
+Graffiti: Pecuniary Loss >=$100<$750,0,0,0,0,1,5,0,1,0,3,5,66.66666666666666
+Cov - Animal At Large Feline (Unaltered),0,0,0,0,0,0,0,0,3,3,5,66.66666666666666
+Mail Theft < 10,0,0,0,0,0,0,0,0,5,5,8,60
+Driving While Intoxicated 2nd,7,12,4,6,5,9,3,1,2,2,3,50
+Duty On Striking Structure Fixture Or Highway Landscaping,1,1,1,3,4,3,2,1,3,2,3,50
+Poss Cs Pg 3 < 28g,5,5,6,7,15,20,18,5,12,2,3,50
+Susp Person/ Veh (Inc Prowlers),2,3,0,1,0,0,1,5,2,2,3,50
+Suspicious Person /  Vehicle / Circumstances,391,256,164,132,114,165,167,104,110,224,334,49.107142857142854
+Evading Arrest/ Detention Using Veh,4,4,3,9,4,12,6,7,4,9,13,44.44444444444444
+Open Door /  Window,111,87,110,96,96,69,60,60,58,41,59,43.90243902439025
+Disturbance,105,102,82,70,74,117,106,114,97,127,178,40.15748031496063
+Consumption Of Alcohol By A Minor,17,16,8,10,12,7,7,6,2,5,7,40
+Possession Of Alcohol By A Minor,8,7,4,4,3,6,3,2,8,3,4,33.33333333333333
+Wrong Fictitious Altered Obscured License Plate,0,0,0,0,0,0,2,16,15,3,4,33.33333333333333
+Damage City Property,6,8,11,31,21,21,9,11,27,16,21,31.25
+Cov- Disturbing Contents Of Containers,3,3,2,3,6,2,4,1,0,4,5,25
+Failed To Comply With Requirements On Striking Unattended Veh,1,2,11,13,14,16,7,7,8,8,10,25
+Criminal Mischief <$100,0,0,0,0,2,10,4,1,4,4,5,25
+Criminal Mischief >=$100<$750,0,0,0,0,5,27,22,12,11,21,26,23.809523809523807
+Investigation /  Information,491,335,326,265,307,319,348,406,403,407,498,22.358722358722357
+Theft Prop (Shoplifting) >=$100<$750,0,0,0,0,3,9,8,4,4,14,17,21.428571428571427
+Cov - Operating Alarm System W/ O Permit,96,118,156,122,120,124,168,133,142,142,172,21.12676056338028
+Property Found /  Lost / Recovered,41,48,44,51,56,76,61,41,54,41,49,19.51219512195122
+Theft Prop <$100,0,0,0,0,4,25,13,12,15,11,13,18.181818181818183
+Cov - Noise Nuisance,20,9,8,6,6,6,1,4,2,7,8,14.285714285714285
+Possession Of Open Container In Motor Vehicle,25,24,17,32,31,35,12,18,16,8,9,12.5
+Accident Involving Damage To Vehicle,1,0,1,1,1,2,1,6,9,9,10,11.11111111111111
+Burglary Of A Vehicle,70,76,92,82,99,110,56,48,52,53,58,9.433962264150944
+Theft Prop (Shoplifting) <$100,0,0,0,0,5,10,8,6,7,20,21,5
+Animal Bite /  Scratch Case,10,3,12,11,3,5,18,11,9,6,6,0
+Display Wrong Ficticious Altered Obscured License Plate,3,9,2,2,0,4,0,0,5,4,4,0
+Driving While Intoxicated 3rd Or More,4,4,8,3,1,4,1,1,3,2,2,0
+Forgery,4,12,11,11,25,22,23,13,22,14,14,0
+Minor In Possession Of Tobacco Products,4,1,3,7,4,6,3,0,5,4,4,0
+Obstruction Or Retaliation,2,1,0,1,1,0,1,1,2,1,1,0
+Poss Cs Pg 1 >= 4g < 200g,3,1,1,2,2,4,4,1,5,2,2,0
+Purchase/ Furnish Alcoh To A Minor,1,0,0,0,1,0,0,0,0,2,2,0
+Resist Arrest Search Or Transport Ma,3,2,2,0,5,6,6,5,6,4,4,0
+Terroristic Threat - Family,1,0,1,0,1,0,0,0,2,1,1,0
+Assault Against Public Servant,0,1,0,1,0,2,0,2,3,1,1,0
+Cruelty To Animals,0,1,0,1,0,0,1,3,0,1,1,0
+Display/ Possess Ficticious Operator/Drivers License,0,1,2,3,2,2,1,0,0,1,1,0
+Unlawful Use Of Criminal Instrument,0,0,1,0,0,0,1,0,2,1,1,0
+Possession Of A Firearm By A Felon,0,0,0,2,0,4,4,1,1,2,2,0
+Tamper W/  Govt Record Defraud/Harm,0,0,0,3,0,2,2,0,1,1,1,0
+Theft,0,0,0,1,0,1,2,0,2,2,2,0
+Abandon/ Endanger Child Criminal Negligence,0,0,0,0,1,0,3,0,0,1,1,0
+Poss Cs Pg 2 < 1g Drug Free Zone,0,0,0,0,1,0,1,1,4,1,1,0
+Theft Prop >=$2500<$30k,0,0,0,0,3,16,13,10,6,3,3,0
+Poss Marijuana > 2oz <= 4oz,0,0,0,0,0,4,2,2,1,1,1,0
+Cov - Signs And Advertisements Over Private Property,0,0,0,0,0,0,1,0,0,1,1,0
+Theft Prop <$2500 2/ More Prev Conv,0,0,0,0,0,0,1,1,1,2,2,0
+Injury To An Elderly Person W/ Intbodily Injury To A,0,0,0,0,0,0,0,0,0,1,1,0
+Interfere W/ Child Custody,0,0,0,0,0,0,0,0,0,1,1,0
+Criminal Trespass,3,4,1,10,2,2,5,6,2,11,10,-9.090909090909092
+Motor Vehicle Theft,0,0,0,0,0,0,0,0,3,11,10,-9.090909090909092
+Terroristic Threat,5,2,6,4,1,3,5,2,3,6,5,-16.666666666666664
+Burglary,29,36,38,44,32,39,32,16,19,20,15,-25
+Crime Prevention,1,2,4,5,1,5,1,6,5,4,3,-25
+Graffiti: Pecuniary Loss <$100,0,0,0,0,4,2,3,3,0,4,3,-25
+Theft Prop >=$750<$2500,0,0,0,0,6,16,15,14,10,17,12,-29.411764705882355
+Cov - Soliciting W/ O Permit,43,27,17,34,19,21,13,17,12,10,7,-30
+Assault/ Family/Choking/Strangulat Ion,2,0,0,2,7,2,5,0,1,3,2,-33.33333333333333
+Cov - Animal Nuisance - Loud & Obnoxious Noise,38,18,20,23,7,10,6,7,8,6,4,-33.33333333333333
+Failure To Identify,2,8,7,6,10,3,6,5,4,3,2,-33.33333333333333
+Recovered Stolen,4,3,1,1,1,2,1,2,3,3,2,-33.33333333333333
+Theft Of Firearm,4,6,6,1,10,14,9,6,4,3,2,-33.33333333333333
+Poss Marijuana <= 2 Oz Drug Free Zone,0,2,7,2,6,2,5,2,1,3,2,-33.33333333333333
+Theft Prop (Shoplifting) <$2500 2/ More Prev Conv,0,0,0,0,0,0,2,1,1,11,7,-36.36363636363637
+Deceased Person,9,5,8,11,7,10,8,10,12,19,12,-36.84210526315789
+Alarm Burglary,33,26,29,42,50,37,60,53,44,38,23,-39.473684210526315
+Cov - Authorized Hours Of Construction,42,38,56,48,36,49,51,45,46,83,50,-39.75903614457831
+Criminal Mischief - Substantial Inconvenience,13,7,6,11,7,4,2,6,0,5,3,-40
+Theft Prop >=$100<$750,0,0,0,0,21,33,28,21,19,25,13,-48
+Assault Threat Or Offensive Touch:family Member,6,4,1,1,0,1,0,1,3,4,2,-50
+Cov - Animal Nuisance - Molest Passerby,4,3,2,1,2,1,1,0,1,2,1,-50
+Cov - Sidewalk And Lane Closure Permit,1,3,0,0,0,4,1,3,1,2,1,-50
+Poss Marijuana < 2oz,26,14,21,19,26,46,37,25,20,2,1,-50
+Sexual Assault,1,3,1,3,0,1,0,1,1,2,1,-50
+Computer Security Breach,0,2,0,1,0,0,0,0,1,2,1,-50
+Criminal Trespass In Habitation,0,1,1,0,1,1,0,3,2,2,1,-50
+Deadly Conduct,0,0,1,0,0,0,1,0,0,2,1,-50
+Cov - Prohibited Discharge Into The Ms4,0,0,0,1,0,0,0,0,0,2,1,-50
+Cov - Other Domestic Animals: Restrictions,0,0,0,0,0,0,1,1,0,2,1,-50
+Evading Arrest/ Detention W/Prev Conviction,0,0,0,0,0,0,2,0,0,2,1,-50
+Executive Order Ga-29 (Mandatory Face Masks),0,0,0,0,0,0,0,0,0,9,4,-55.55555555555556
+Public Intoxication,27,42,47,19,21,46,36,20,23,13,5,-61.53846153846154
+Failure To Identify /  Fugitive From Justice,4,6,5,7,7,16,7,9,8,6,2,-66.66666666666666
+Stalking,0,0,0,1,1,0,2,1,0,3,1,-66.66666666666666
+Cov - Junked Vehicles Declared Public Nuisance,0,0,0,0,0,1,0,3,2,3,1,-66.66666666666666
+Cov - Prohibited Displays,0,0,0,0,0,1,0,0,1,3,1,-66.66666666666666
+Animal Complaint,0,12,14,7,5,13,5,14,10,17,5,-70.58823529411765
+Cov - Permit Required,0,0,0,0,0,0,0,3,20,7,2,-71.42857142857143
+Cov - Impounding Vehicles -,2,1,0,2,5,2,0,4,0,4,1,-75
+Cov - Soliciting On Private Property Uninvited,18,29,11,5,5,10,8,4,2,4,1,-75
+Cov - Parking /  Prohibitions Of Large Vehicles Boats And Other,0,1,4,4,6,11,3,2,4,5,1,-80
+Criminal Mischief >=$750<$2500,0,0,0,0,4,7,10,4,5,5,1,-80
+Cov - Prohibited Signs,0,0,0,0,0,2,0,0,0,5,1,-80
+Cov - Accumulation Of Garbage Trash Weeds Or Other Matter,1,0,0,1,2,123,147,99,133,36,1,-97.22222222222221
+911 Inc/ Silent/Abuse,1,0,2,0,0,2,0,0,0,2,0,0
+Accident Involving Personal Injury Or Death,1,0,0,0,0,0,0,1,1,0,1,0
+Aggravated Robbery,2,1,1,1,0,1,1,1,1,1,0,0
+Alarm Robbery,2,1,0,1,0,1,3,0,0,0,1,0
+Alcohol Violations (No Pi),1,0,0,0,0,0,0,0,0,0,0,0
+Animal Nuisance,3,1,5,3,3,4,3,3,1,0,1,0
+Assault Threat Or Offensive Touch,7,3,3,11,3,3,5,5,4,0,6,0
+Assist The Public,3,7,1,1,5,1,0,0,1,0,3,0
+City Code Violation,1,3,3,0,0,7,4,4,1,0,0,0
+Civil Standby,2,0,0,1,0,0,0,0,0,0,0,0
+Cov - Animal Nuisance - Chase Pedestrians Bicycles Or Vehicles,1,1,0,0,1,0,0,0,0,0,0,0
+Cov - Animal Nuisance - Defecate On Property Of Others,1,3,0,1,3,0,0,0,0,0,0,0
+Cov - Animal Nuisance - Trespass Onto Private Property,1,0,0,0,0,0,0,0,0,1,0,0
+Cov - Animal Restrictions,2,0,1,0,0,2,4,2,0,1,0,0
+Cov - Discharge Air Rifle Or Air Gun Within City Limits,1,1,1,0,1,0,0,0,0,0,0,0
+Cov - Fail To Comply With Stage Water Restrictions,1,0,0,0,0,0,0,0,0,1,0,0
+Cov - Fireworks Discharging Within City Limits,1,0,0,0,1,2,0,0,0,0,0,0
+Cov - Garage Sale Or Estate Sale No Permit,2,3,3,2,0,1,0,1,0,1,0,0
+Cov - Garden And Yard Debris In Street /  Alley,3,2,1,2,3,2,2,3,0,1,0,0
+Cov - Open Burning,2,0,0,2,0,0,3,1,0,0,2,0
+Cov - Parking On Unpaved Area Of Private Property,4,1,2,1,1,2,1,1,0,0,1,0
+Cov - Sign Permit Required,1,0,0,0,0,0,0,0,0,0,0,0
+Cov - Signs On Or Over Public Property,3,3,0,4,3,2,7,1,0,3,0,0
+Cov - Solid Waste,5,1,2,8,2,2,2,1,1,0,0,0
+Cov - Solid Waste - Compliance Required,1,0,0,0,0,2,0,1,0,1,0,0
+Cov - Tree Pruning Or Removal,1,0,4,0,0,1,0,1,0,0,0,0
+Cov - Water Management 19-51,1,1,0,0,0,0,0,1,0,0,0,0
+Criminal Mischief <$50,8,1,0,3,1,0,0,0,0,0,0,0
+Criminal Mischief >=$1500<$20k,2,2,2,7,4,0,0,0,1,0,2,0
+Criminal Mischief >=$50<$500,15,26,10,30,19,2,1,0,0,0,0,0
+Criminal Mischief >=$500<$1500,8,9,13,13,4,0,1,2,2,0,0,0
+Damaged City Property,1,0,1,2,4,0,1,1,0,0,1,0
+Disorderly Conduct By Breach Of Peace,1,0,1,0,0,1,1,0,0,2,0,0
+Disorderly Conduct By Fighting,4,0,1,1,0,0,0,0,1,0,0,0
+Disorderly Conduct By Loud And Profane Language,1,1,1,1,1,0,0,2,0,0,1,0
+Disorderly Conduct-Expose Anus Or Genitals,1,1,1,2,1,0,1,2,0,0,3,0
+Display Fictitious Insurance Certificate,2,0,0,0,0,0,0,0,0,0,0,0
+Display/ Possess Ficticious Inspection Cert,3,0,0,0,1,0,0,0,0,0,0,0
+Driving Under The Influence - Minor,6,7,2,0,1,1,2,1,0,0,4,0
+Driving While Intoxication With Child Passenger,2,1,1,0,0,1,0,1,0,0,1,0
+Duty To Give Information And Render Aid,1,3,3,13,11,6,8,2,2,1,0,0
+Field Interview,1,1,2,0,0,2,0,0,2,0,0,0
+Fire Calls,1,0,0,0,0,0,1,2,0,0,0,0
+Graffiti: Pecuniary Loss <$1500,2,1,0,1,0,0,0,0,0,0,0,0
+Graffiti: Pecuniary Loss <$500,12,3,0,1,3,1,0,3,0,0,0,0
+Graffiti: Schools Place Of Worship/ Human Burial Pub Monument Community Cntr,1,0,2,0,1,0,0,0,0,0,0,0
+Hindering Apprehension Or Prosecution,1,0,0,0,0,0,0,0,0,0,0,0
+Illegal Dumping,2,1,4,0,1,0,0,2,2,0,1,0
+Improper Use Of Laser Pointer,1,0,0,0,0,0,0,0,0,0,0,0
+Interfere W/ Public Duties,1,0,0,0,1,3,0,2,0,1,0,0
+Leaving Child In Vehicle,2,0,0,1,0,0,0,0,0,0,0,0
+Man Del Cs Pg 1 < 1g,1,0,0,0,0,0,0,0,0,0,0,0
+Man Del Cs Pg 1 >= 4g < 200g,1,0,0,2,2,4,0,2,0,2,0,0
+Man Del Cs Pg 2 >= 4g < 400g,1,0,0,0,1,1,0,2,0,0,0,0
+Medical /  Trauma - Ems,1,0,0,1,3,2,0,0,0,0,0,0
+Park Or Stand In Front Of Public/ Private Driveway,2,0,0,0,0,0,0,0,0,0,0,0
+Poss Cs Analogue Pg 1 <1g,2,0,1,1,0,0,0,0,0,0,0,0
+Poss Cs Pg 2a =< 2 Oz,1,0,0,3,3,1,1,0,2,0,0,0
+Poss Cs Pg 3 < 28g Drug Free Zone,1,0,0,0,1,4,1,0,0,0,0,0
+Poss Cs Pg 4 < 28g,1,0,0,0,0,0,2,0,2,0,0,0
+Possession Prohibited Weapon,2,1,1,4,2,6,1,3,1,0,1,0
+Property Report,3,2,0,0,1,1,2,0,0,1,0,0
+Runaway/ Missing Person,2,5,3,1,3,1,3,1,0,0,0,0
+Suicide,1,2,0,1,1,1,2,0,0,1,0,0
+Susp Circumstances,2,2,1,0,1,2,1,0,0,0,1,0
+Theft (Shoplifting) < $1500  2 Or More Prev Convic,2,2,0,3,1,0,0,0,2,2,0,0
+Theft (Shoplifting) < $50,7,9,9,11,14,0,1,1,0,0,0,0
+Theft (Shoplifting) >= $50 < $500,6,8,3,3,9,0,0,1,0,1,0,0
+Theft (Shoplifting) >= $500 < $1500,2,2,1,0,0,0,0,0,1,0,0,0
+Theft < $1500  2 Or More Prev Convic,1,1,0,4,1,0,0,0,0,0,1,0
+Theft < $50,23,16,13,6,8,0,0,0,0,0,0,0
+Theft > $1500 < $20k,15,12,11,17,11,0,2,2,2,0,1,0
+Theft >= $50 < $500,44,47,31,45,30,0,1,0,1,0,0,0
+Theft >= $500 < $1500,13,11,26,27,21,0,1,1,0,1,0,0
+Theft From Person/ Human Corpse/Grave,1,0,1,0,0,0,0,0,0,0,0,0
+Theft Of A Motor Vehicle,8,11,6,4,6,3,0,0,0,0,0,0
+Theft Of Services >= $20 < $500,3,4,2,1,3,0,0,0,0,0,0,0
+Unlawful Restraint,1,0,0,0,0,0,1,1,1,0,0,0
+Unlawfully Carrying A Weapon (Weapon Free Zone),1,0,0,0,0,0,0,0,0,0,0,0
+Vehicle Impound /  Release,1,1,0,0,0,0,0,1,0,0,0,0
+Aggravated Assault Deadly Weapon,0,1,0,2,5,1,4,3,2,0,2,0
+Aggravated Assault Deadly Weapon Family Member,0,1,1,0,0,0,1,3,0,0,1,0
+Aggravated Sexual Assault,0,3,0,0,0,0,0,1,0,0,2,0
+Alarm Fire/ Medical,0,1,0,0,1,2,1,0,0,1,0,0
+Assault Causes Bodily Injury,0,3,1,6,2,7,4,2,4,3,0,0
+Assault Causes Bodily Injury:family Member (Prior Conv),0,1,0,0,2,0,0,1,0,0,1,0
+Burglary Coin Op Machine,0,4,1,10,0,0,0,0,0,0,0,0
+Collection Of Garbage And Rubbish,0,1,2,0,0,0,0,0,0,0,0,0
+Consumption Of Alcoholic Bev On Premises Lic For Off-Premises Consump,0,1,0,0,2,0,1,0,1,0,0,0
+Cov - Parking Prohibited Or Limited On Certain Streets,0,2,0,0,0,2,0,0,0,1,0,0
+Cov - Temporary Signs - Display More Than Two (2),0,1,0,0,0,0,0,0,0,1,0,0
+Cov - Water Restriction,0,1,0,0,1,0,1,0,0,0,0,0
+Cov-Certain Items Prohibited,0,1,0,1,0,0,0,0,0,0,0,0
+Criminal Trespass - School Grounds,0,1,0,3,0,0,0,0,0,0,1,0
+Display/ Possess Altered Operator/Drivers License,0,2,0,0,1,0,0,0,0,0,0,0
+Drag Racing--Acceleration Contest Etc,0,2,0,0,0,1,0,0,0,0,0,0
+Dwi /  Dui (Includes Minors),0,1,0,1,0,0,0,2,1,0,1,0
+Fail To Comply With Sex Offender Registration Requirements,0,2,1,1,0,0,1,0,0,0,1,0
+Intoxicated Assault W/   Vehicle Sbi,0,2,0,0,0,0,0,0,0,1,0,0
+Making Alcohol Available To Minor,0,1,0,0,0,0,0,0,0,1,0,0
+Misapplication Of Fiduciary Property >=$20000 < $100000,0,1,0,0,0,0,0,0,0,0,0,0
+Online Solicitation Of A Minor,0,1,1,0,0,0,0,0,1,0,0,0
+Open Container Proh On Premise Of Package Store,0,1,0,0,0,0,0,0,0,0,0,0
+Poss /  Obtain Cs Sch Iii/Iv F3,0,1,0,0,0,0,0,0,0,0,0,0
+Poss Marijuana > 4oz <= 5lbs,0,1,1,1,2,1,2,0,1,0,0,0
+Possession Of Metal Or Body Armor By Felon,0,1,0,0,0,0,0,0,0,0,0,0
+Public Lewdness,0,1,0,1,0,1,0,0,0,0,0,0
+Robbery,0,4,1,0,0,1,2,3,1,0,2,0
+Swat Call-Out,0,1,0,0,0,0,0,0,0,0,0,0
+Tamper/ Fabricate Physical Evidence - Alter/Destroy/Conceal,0,1,0,1,3,4,2,2,3,0,1,0
+Terroristic Threat - Cause/ Impair Public Service,0,1,0,0,0,0,1,0,0,0,0,0
+Theft >= $20k<$100k,0,2,4,3,1,0,1,1,0,0,0,0
+Abandon/ Endanger Child Imminent Danger Bodily Inj,0,0,1,0,1,0,1,0,0,0,0,0
+Aggravated Assault Public Servant,0,0,1,0,0,0,0,0,0,0,0,0
+Bribery,0,0,1,0,0,0,0,0,0,0,1,0
+Burglary Vehicle,0,0,1,0,0,0,1,0,0,1,0,0
+Civil Stand-By,0,0,1,1,0,0,0,0,0,0,1,0
+Cov - Building Permit Required,0,0,1,0,2,1,2,0,0,0,0,0
+Cov - Construction Materials,0,0,1,0,1,1,0,1,1,0,1,0
+Cov - Control Of Trash Dust And Noxious Matter,0,0,1,1,0,3,0,3,0,1,0,0
+Cov - Display Of Permit And Plans Required,0,0,1,1,0,0,0,0,0,0,0,0
+Cov - Parking /  Prohibited Purpose,0,0,1,0,2,0,0,1,1,0,0,0
+Cov - Vicious Dog,0,0,3,2,1,1,2,1,2,0,1,0
+Display Fictitious /  Altered Registration Insignia,0,0,3,4,6,13,10,7,3,0,1,0
+Driving In Violation Of Occupational License,0,0,3,0,2,1,1,0,0,0,0,0
+Evading Arrest,0,0,1,0,0,0,0,0,0,0,0,0
+Exploitation Of Child Elderly Or Disabled Individual,0,0,1,0,0,0,0,0,1,2,0,0
+Failure To Report Abuse Or Neglect,0,0,1,0,0,0,0,0,0,0,0,0
+Harrassment Of Public Servant,0,0,1,0,0,0,0,0,0,0,0,0
+Indecency W/ Child Sexual Contact,0,0,1,0,0,0,0,0,1,0,0,0
+Injury To A Child - Mental,0,0,1,0,0,0,0,0,0,0,0,0
+Injury To A Child Sbi,0,0,1,0,0,0,0,0,0,0,0,0
+Injury To A Child W/ Int Bodily Injury To A,0,0,2,0,0,0,0,0,0,0,0,0
+Man Del Cs Pg 1 >= 1g < 4g,0,0,1,0,0,1,0,0,0,0,0,0
+Man Del Cs Pg 3/ 4 < 28g,0,0,1,1,1,2,0,0,0,0,0,0
+Misapplication Of Fiduciary Property >=$1500 < $20000,0,0,1,1,0,0,0,0,0,0,0,0
+Off-Duty Assignment,0,0,1,0,0,0,3,2,8,0,1,0
+Poss Cs Pg 3 >= 1g Drug Free Zone,0,0,1,0,0,0,0,0,0,0,0,0
+Sell Manufacture Distribute Or Poss Fict Dl Or Id Cert,0,0,1,0,0,0,0,0,0,2,0,0
+Stealing Or Receiving Stolen Check Or Similar Sight Order,0,0,2,0,0,0,1,0,1,0,0,0
+Suicide & Attempts,0,0,1,0,0,0,0,0,1,0,0,0
+Theft < $50 W/  Prev Convic,0,0,1,2,0,0,0,0,0,0,0,0
+Theft >= $20 < $500 By Check,0,0,1,0,0,0,0,0,0,0,0,0
+Theft >= $200k,0,0,1,0,0,0,0,0,0,0,0,0
+Arson,0,0,0,1,0,0,0,0,0,1,0,0
+Attempted Suicide,0,0,0,1,0,0,0,2,1,0,0,0
+Consumption Of Alcoholic Beverages Near  A School,0,0,0,2,0,1,1,0,0,0,0,0
+Cov - Demolition Permit Required,0,0,0,1,0,0,0,0,1,0,0,0
+Cov - Loaded Rifle /  Shotgun In City Limits,0,0,0,1,0,0,0,0,0,0,0,0
+Cov - Operate Food Establishment Without Permit,0,0,0,1,0,0,0,0,1,0,0,0
+Deadly Conduct Discharge Firearm,0,0,0,1,0,1,0,2,0,0,0,0
+Del Marijuana >1/ 4 Oz <= 5lbs,0,0,0,1,0,1,0,0,0,0,0,0
+Driving While License Suspended/ Invalid,0,0,0,1,0,0,0,0,0,1,0,0
+Electronic Transmission Of Certain Visual Material Depicting Minor,0,0,0,1,0,0,1,0,0,0,0,0
+Forging Or Altering Prescription,0,0,0,4,0,0,3,2,0,0,0,0
+Graffiti: Pecuniary Loss <$20k,0,0,0,2,0,0,0,0,0,0,0,0
+Harboring Runaway Child,0,0,0,1,0,0,0,0,0,0,0,0
+Indecent Exposure,0,0,0,1,3,3,0,0,1,0,4,0
+Kidnapping,0,0,0,1,0,0,0,0,0,0,0,0
+Online Impersonation,0,0,0,1,1,1,0,0,0,0,1,0
+Prohibited Substance /  Item In Correctional Facility,0,0,0,1,0,0,0,0,0,0,0,0
+Sexual Assault On A Child,0,0,0,2,0,0,0,1,0,0,1,0
+Theft Of Services < $20,0,0,0,1,1,0,0,0,0,0,0,0
+Unlawful Carrying Of Handgun By License Holder,0,0,0,1,0,0,0,0,0,0,0,0
+Cov - Year Round Water Conservation,0,0,0,0,1,9,3,0,0,0,0,0
+Criminal Mischief >=$2500<$30k,0,0,0,0,2,7,2,0,0,0,7,0
+Del Offer  Del Of Dangerous Drug,0,0,0,0,1,0,0,0,0,0,0,0
+Graffiti: Pecuniary Loss >=$750<$2500,0,0,0,0,1,1,0,0,0,0,0,0
+Misrepresentation Of Age By Minor,0,0,0,0,1,1,0,0,5,0,2,0
+Motor Carrier Registration Requirement,0,0,0,0,1,0,0,0,0,0,0,0
+Perjury,0,0,0,0,1,0,0,0,0,0,0,0
+Poss Cs By Fraud Sch I/ Ii,0,0,0,0,1,0,0,0,0,0,0,0
+Poss Cs Pg 2 >= 4g < 400g,0,0,0,0,1,0,2,1,2,0,3,0
+Poss Use Abusable/ Aerosol Paint W/Int Inhale,0,0,0,0,3,0,1,0,1,0,0,0
+Possession Of Stolen Property,0,0,0,0,1,0,1,1,0,0,0,0
+Reckless Damage Or Destruction,0,0,0,0,1,0,0,0,0,1,0,0
+Sexual Assault - Statutory Rape,0,0,0,0,1,0,0,0,0,0,0,0
+Theft (Shoplifting) > $1500 < $20k,0,0,0,0,1,0,0,0,0,0,0,0
+Theft >= $100k < $200k,0,0,0,0,1,0,0,0,0,0,0,0
+Theft Of Serv <$100,0,0,0,0,1,2,0,2,3,0,0,0
+Arrest Warrant,0,0,0,0,0,2,1,0,0,0,1,0
+Capital Murder,0,0,0,0,0,1,0,0,0,0,0,0
+Cov - Abandoned Ice Box Refrigerators Or Other,0,0,0,0,0,1,0,0,0,0,0,0
+Cov - Collection Solid Waste Containers,0,0,0,0,0,1,2,0,0,1,0,0
+Cov - Commercial Tree/ Yard/Garden Services Removal Of Debris,0,0,0,0,0,5,11,9,10,0,0,0
+Cov - Display Sale Items,0,0,0,0,0,1,0,0,0,0,0,0
+Cov - Fail To Remove Accumulation Of Garbage Weeds Other,0,0,0,0,0,1,0,0,0,0,0,0
+Cov - Fail To Vaccinate Animal Older Than 4 Months,0,0,0,0,0,1,0,1,0,0,1,0
+Cov - Height Limitation Structures Plants Trees,0,0,0,0,0,48,17,35,35,1,0,0
+Cov - Improper Location Of Garbage/ Trash Can Or Receptacle,0,0,0,0,0,3,6,1,0,0,0,0
+Cov - International Fire Code Adopted,0,0,0,0,0,1,0,0,0,0,0,0
+Cov - International Property Maintenance Code Adopted,0,0,0,0,0,2,6,9,3,1,0,0
+Cov - Pick Up Tree Yard And Garden Debris By City,0,0,0,0,0,2,2,0,0,0,0,0
+Cov - Placing Garbage Or Waste In Streets Or Alleys,0,0,0,0,0,1,2,2,0,0,0,0
+Cov - Portable Water Closets/ Construction Sites,0,0,0,0,0,1,0,1,1,0,0,0
+Cov - Shrubbery/ Vegetation Upon/Over Streets/Sidewalks,0,0,0,0,0,122,60,37,175,4,0,0
+Cov - Solid Waste - Use Of Containers,0,0,0,0,0,3,4,1,0,0,0,0
+Cov - Tree Maintenance,0,0,0,0,0,2,2,1,0,0,0,0
+Cov - Use Or Disposition Of Public Rights-Of-Way,0,0,0,0,0,1,0,0,0,0,0,0
+Criminal Mischief >=$30k<$150k,0,0,0,0,0,1,0,0,0,0,0,0
+Display/ Possess Ficticious Com Oper License,0,0,0,0,0,1,0,0,0,0,0,0
+Drug Violation,0,0,0,0,0,1,1,1,0,0,0,0
+Engage In Organized Criminal Activity,0,0,0,0,0,1,0,2,0,0,0,0
+Escape While Arrested/ Confined,0,0,0,0,0,1,0,0,0,0,0,0
+Evading Arrest/ Detention Cause Sbi Of Another,0,0,0,0,0,1,0,0,0,0,1,0
+Fail To Comply With Registration Requirements Life/ 90 Day,0,0,0,0,0,1,0,0,0,0,0,0
+False Alarm Or Report,0,0,0,0,0,1,1,0,2,0,0,0
+False Report To Peace Officer/ Law Enforcement,0,0,0,0,0,2,0,0,0,0,0,0
+Leave Refuse On Highway (Littering),0,0,0,0,0,1,1,0,0,0,0,0
+Theft Prop (Shoplifiting) >=$750<$2500,0,0,0,0,0,2,0,0,1,2,0,0
+Theft Prop >=$30k<$150k,0,0,0,0,0,3,1,2,0,0,4,0
+Traffic Hazard,0,0,0,0,0,1,1,0,0,0,0,0
+Walked On Roadway Where Sidewalks Provided,0,0,0,0,0,1,0,0,0,0,0,0
+Abandon/ Endanger Child W/Intent To Return,0,0,0,0,0,0,1,0,0,0,0,0
+Burglary Of A Vehicle - 2 Or More Prev Convic,0,0,0,0,0,0,4,0,0,0,1,0
+Cov - Containers To Be Kept Tightly Covered,0,0,0,0,0,0,6,3,0,0,0,0
+Cov - Disposal Of Accumulations Of Brick Lumber Cinders,0,0,0,0,0,0,9,5,5,2,0,0
+Cov - General Duties Of Person In Charge Of Premises,0,0,0,0,0,0,4,0,0,0,0,0
+Cov - Prohibited Acts,0,0,0,0,0,0,1,0,0,0,0,0
+Cov - Rabies Protection Vaccination Of Dogs Cats And Ferrets,0,0,0,0,0,0,3,0,0,0,0,0
+Cov-Maintenance Of Containers,0,0,0,0,0,0,2,0,0,0,0,0
+Criminal Mischief,0,0,0,0,0,0,2,0,0,0,0,0
+Fraudulent Destruction Removal Concealment Of Writing,0,0,0,0,0,0,1,0,0,0,0,0
+Invasive Visual Recording,0,0,0,0,0,0,1,0,0,0,0,0
+Misapp Fiduc/ Finan Prop >=$300k,0,0,0,0,0,0,1,0,0,0,0,0
+Theft Of Serv >=$100<$750,0,0,0,0,0,0,1,1,2,0,2,0
+Theft Prop (Shoplifting) <$100 W/ Prev Convic,0,0,0,0,0,0,1,0,1,0,0,0
+Theft Prop >=$300k,0,0,0,0,0,0,1,0,0,2,0,0
+Unrestrained Child Under 4 Years Of Age,0,0,0,0,0,0,1,0,0,0,0,0
+Cov - Protective Treatment,0,0,0,0,0,0,0,1,0,1,0,0
+Cov - Right-Of-Way Clearance,0,0,0,0,0,0,0,28,0,0,0,0
+Cov - Trash Receptacle Screen,0,0,0,0,0,0,0,1,0,1,0,0
+Cov - Unauthorized Signs Signals,0,0,0,0,0,0,0,1,1,0,0,0
+Fleeing From Police Officer,0,0,0,0,0,0,0,3,0,0,0,0
+Fraudulent Destruction Or Concealment Of Writing,0,0,0,0,0,0,0,1,0,0,0,0
+Misapp Fiduc/ Finan Prop >=$2500<$30k,0,0,0,0,0,0,0,1,0,0,0,0
+Misapp Fiduc/ Finan Prop >=$30k<$150k,0,0,0,0,0,0,0,1,0,0,0,0
+Parking So As To Create A Traffic Hazard,0,0,0,0,0,0,0,1,2,0,0,0
+Securing Execution Of Document By Deception,0,0,0,0,0,0,0,1,0,0,0,0
+Theft Of Material Alum/ Brnz/Copper/Brass <$20k,0,0,0,0,0,0,0,1,0,0,0,0
+Aggravated Assault Sbi,0,0,0,0,0,0,0,0,1,0,1,0
+Confiscated Drugs/ Equipment,0,0,0,0,0,0,0,0,5,1,0,0
+Cov - Animal Nuisance - Damaging Property Of Others,0,0,0,0,0,0,0,0,1,0,0,0
+Cov - Requirement To Repair Water Leaks Upon Notice 19-52,0,0,0,0,0,0,0,0,1,0,0,0
+Cov - Swimming Pools,0,0,0,0,0,0,0,0,2,0,0,0
+Cov - Zoning Compliance 2075,0,0,0,0,0,0,0,0,2,0,0,0
+Cov-Curbs Curb Cuts Curbs And Guttersetc Assign Resp  Permit Required,0,0,0,0,0,0,0,0,1,1,0,0
+Dwi (Juvenile),0,0,0,0,0,0,0,0,1,0,0,0
+Impeding Traffic,0,0,0,0,0,0,0,0,1,0,0,0
+Parked W/   Wheels Over 18 Inches From Curb Or Edge Of Roadway,0,0,0,0,0,0,0,0,1,0,0,0
+Poss Cs Pg 1 >= 200g < 400g,0,0,0,0,0,0,0,0,1,0,0,0
+Poss Cs Pg 2 >= 1g Drug Free Zone,0,0,0,0,0,0,0,0,2,0,1,0
+Sex Offenders Duty To Register Life/ Annually,0,0,0,0,0,0,0,0,1,0,0,0
+Theft  (All Others),0,0,0,0,0,0,0,0,1,0,0,0
+Theft  (Of Motor Vehicle Parts),0,0,0,0,0,0,0,0,1,2,0,0
+Theft (Deception),0,0,0,0,0,0,0,0,1,0,3,0
+Theft >= $500 < $1500 By Check,0,0,0,0,0,0,0,0,1,0,0,0
+Theft Prop (Shoplifting) >=$2500<$30k,0,0,0,0,0,0,0,0,1,0,0,0
+Aggravated Assault Deadly Weapon Family Member Serious Bodily Injury,0,0,0,0,0,0,0,0,0,1,0,0
+Cov - Clinging To Moving Vehicles,0,0,0,0,0,0,0,0,0,2,0,0
+Obscene Display Or Distribution,0,0,0,0,0,0,0,0,0,2,0,0
+Poss Cs Pg 1 < 1g Drug Free Zone,0,0,0,0,0,0,0,0,0,1,0,0
+Tamper With Identification Numbers,0,0,0,0,0,0,0,0,0,2,0,0
+Theft Motor Vehicles,0,0,0,0,0,0,0,0,0,1,0,0
+Unlawful Installation Of Tracking Device,0,0,0,0,0,0,0,0,0,1,0,0
+Att Aggravated Assault Public Servant,0,0,0,0,0,0,0,0,0,0,1,0
+Att Burglary Vehicle,0,0,0,0,0,0,0,0,0,0,1,0
+Fraud Use Or Poss Of Credit Card Or Debit Card Information,0,0,0,0,0,0,0,0,0,0,3,0
+Indecent Assault,0,0,0,0,0,0,0,0,0,0,1,0
+Mail Theft (Identifying Information) >= 10 < 20,0,0,0,0,0,0,0,0,0,0,1,0
+Mail Theft >= 10 < 30,0,0,0,0,0,0,0,0,0,0,2,0
+Mail Theft >= 30,0,0,0,0,0,0,0,0,0,0,1,0
+Man Del Cs Pg 1 >= 1g Drug Free Zone,0,0,0,0,0,0,0,0,0,0,1,0
+Man Del Cs Pg 2 >= 1g Drug Free Zone,0,0,0,0,0,0,0,0,0,0,1,0
+Murder,0,0,0,0,0,0,0,0,0,0,1,0
+Obstruct Highway Passageway,0,0,0,0,0,0,0,0,0,0,1,0
+Poss Cs Pg 3 >= 28g < 200g,0,0,0,0,0,0,0,0,0,0,1,0
+Poss Marijuana > 4 Oz <= 5lbs Drug Free Zone,0,0,0,0,0,0,0,0,0,0,1,0
+Theft Prop (Controlled Substance) < $150000,0,0,0,0,0,0,0,0,0,0,1,0
+Theft Prop <$100 W/ Prev Convic,0,0,0,0,0,0,0,0,0,0,1,0
+Unlawful Interception Use Or Disclosure Of Wire Oral Or Electronic Communications,0,0,0,0,0,0,0,0,0,0,1,0

@@ -13,7 +13,7 @@ library(readxl)
 Uploading the codes (That is the official police code list, approved by the chief.)
 
 ```{r}
-codes_classified <- read_excel("Data/Exports/FOR REVIEW/march_14_codes_official.xlsx", sheet = 2)
+codes_classified <- read_excel("Data/Exports/FOR REVIEW/Copy of march_14_codes_official.xlsx", sheet = 2)
 
 codes_classified
 ```
@@ -21,14 +21,16 @@ codes_classified
 ```{r}
 clean_codes_classified <- codes_classified %>%
   select(value_clean, priority, property_crime) %>%
-  distinct()
+  distinct() %>%
+  filter(priority != "NA")
 
 clean_codes_classified
 ```
 ```{r}
-values_doubled_check <- codes_classified %>%
-  select(value_clean) %>%
-  distinct()
+values_doubled_check <- clean_codes_classified %>%
+  group_by(value_clean) %>%
+  tally() %>%
+  arrange(desc(n))
 
 values_doubled_check
 ```
@@ -36,13 +38,14 @@ values_doubled_check
 Perfect. Everything should be great
 
 ```{r}
-full_incidents_pd_approved <- clean_offenses %>%
-  inner_join(clean_codes_classified, by = "value_clean")
+full_offenses_pd_approved <- clean_offenses %>%
+  inner_join(clean_codes_classified, by = "value_clean") %>%
+  mutate(year = floor_date(date, unit = "year")) %>%
+  mutate(clean_year = paste("y", substr(year, 1, 4), sep = "_")) %>%
+  select(-rowid)
 
-full_incidents_pd_approved
+full_offenses_pd_approved
 ```
-
-
 So, I'm going to use it to look at:
 
 percent of each category of priority of crimes throughout the years
@@ -51,8 +54,7 @@ percent of property crimes throughout the years
 First, this is just a general analysis of the crimes, what went up, what went down
 
 ```{r}
-year_count <- full_incidents_pd_approved %>%
-  mutate(clean_year = paste("y", substr(year, 1, 4), sep = "_")) %>%
+year_count <- full_offenses_pd_approved %>%
   group_by(value_clean, clean_year) %>%
   tally() %>%
   arrange(clean_year) %>%
@@ -70,6 +72,27 @@ year_count <- full_incidents_pd_approved %>%
 
 year_count
 ```
+```{r}
+year_count_table_view <- full_offenses_pd_approved %>%
+  group_by(value_clean, clean_year) %>%
+  tally() %>%
+  arrange(clean_year) %>%
+  pivot_wider(names_from = "clean_year", values_from = "n") %>%
+  mutate(pchange_21_20 = ((y_2021 - y_2020)/y_2020)*100) %>%
+  mutate(pchange_20_19 = ((y_2020 - y_2019)/y_2019)*100) %>%
+  mutate(pchange_19_18 = ((y_2019 - y_2018)/y_2018)*100) %>%
+  mutate(pchange_18_17 = ((y_2018 - y_2017)/y_2017)*100) %>%
+  mutate(pchange_17_16 = ((y_2017 - y_2016)/y_2016)*100) %>%
+  #ungroup() %>%
+  arrange(desc(pchange_21_20)) %>%
+  select(y_2011, y_2012, y_2013, y_2014, y_2015, y_2016, y_2017, y_2018, y_2019, y_2020, y_2021, pchange_21_20) %>%
+  mutate_all(~replace(., is.na(.), 0)) %>%
+  mutate(value_clean = str_to_title(value_clean))
+
+year_count_table_view
+```
+
+
 ## Analysis by Offenses
 
 So there can be multiple offenses in an incident, looking at the offenses all together, here's what we know
@@ -78,7 +101,7 @@ First, we group the list by the sorted codes
 
 
 ```{r}
-priority_year_grouping <- full_incidents_pd_approved %>%
+priority_year_grouping <- full_offenses_pd_approved %>%
   group_by(priority, year) %>%
   tally() %>%
   pivot_wider(names_from = priority, values_from = n) %>%
@@ -95,15 +118,15 @@ priority_year_grouping
 Cool, now we look at property crime
 
 ```{r}
-property_crime_year_grouping <- full_incidents_pd_approved %>%
+property_crime_year_grouping <- full_offenses_pd_approved %>%
   group_by(property_crime, year) %>%
   tally() %>%
   pivot_wider(names_from = property_crime, values_from = n) %>%
   clean_names() %>%
   mutate(total = (y+n)) %>%
   mutate(per_yes_property_crime = ((y/total)*100)) %>%
-  mutate(per_not_property_crime = ((n/total)*100)) %>%
-  filter(year > as.Date("2015-01-01"))
+  mutate(per_not_property_crime = ((n/total)*100)) 
+  #filter(year > as.Date("2015-01-01"))
 
 property_crime_year_grouping
 ```
@@ -111,18 +134,21 @@ property_crime_year_grouping
 
 this is a little bit harder. We need to look at each incident, which could have multiple different priorities associated with it and some non-property crimes associated with property crimes
 
-So, I basically want to only look at incidents in this situation, so I will ungroup and narrow down my columns to remove any potential dupliates
+So, I basically want to only look at incidents in this situation, so I will ungroup and narrow down my columns to remove any potential duplicates
 
-```{r}
-chief_approved_incident <- full_incidents_pd_approved %>%
+
+** DELETE **
+
+chief_approved_incident <- full_offenses_pd_approved %>%
   ungroup() %>%
-  select(-desc_clean, -class, -nibr, -type, -ucr, -property_crime, -officer, -incident_month, -address_clean, -value_clean)
+  select(-desc_clean, -property_crime, -officer, -incident_month, -address_clean, -value_clean) %>%
+  distinct()
 
 chief_approved_incident
-```
+
 I count the number of incident numbers and create a situation in which the priority is seen as the tru priority if there is only one offense listed with the incident
 
-```{r}
+
 incident_num <- chief_approved_incident %>%
   group_by(incident_num) %>%
   tally() %>%
@@ -132,14 +158,32 @@ chief_approved_incident <- chief_approved_incident %>%
   inner_join(incident_num, by = "incident_num") %>%
   mutate(tru_priority = case_when(
     count_incident_num == 1 ~ priority
-  ))
+  )) %>%
+  select(-priority) %>%
+  distinct()
 
 chief_approved_incident
-```
+
+
+check_inc_num <- chief_approved_incident %>%
+  group_by(incident_num) %>%
+  tally() %>%
+  arrange(desc(n))
+
+check_inc_num
+
+
+one_spec_inc <- chief_approved_incident %>%
+  filter(incident_num == "11-00011(0)")
+
+one_spec_inc
+
+** DELETE **
+
 i get ready to do some of my own prioritizing by grouping the incidents and their priorities and then counting them
 
 ```{r}
-prep_by_incident <- chief_approved_incident %>%
+prep_by_incident <- full_offenses_pd_approved %>%
   #filter(count_incident_num >1) %>%
   group_by(incident_num, priority) %>%
   tally() %>%
@@ -204,8 +248,9 @@ Okay, glad I checked that
 Moving forward to joining the incident to the tru priority
 
 ```{r}
-final_chief_approved_by_incident <- chief_approved_incident %>%
-  select(-priority, -tru_priority) %>%
+final_chief_approved_by_incident <- full_offenses_pd_approved %>%
+  ungroup() %>%
+  select(-desc_clean, -property_crime, -officer, -incident_month, -address_clean, -value_clean, -priority) %>%
   distinct() %>%
   inner_join(incident_real_priority, by = "incident_num") %>%
   select(-low, -high, -med, -very_high)
@@ -224,8 +269,8 @@ priority_year_grouping_incident <- final_chief_approved_by_incident %>%
   mutate(per_high = ((high/total)*100)) %>%
   mutate(per_low = ((low/total)*100)) %>%
   mutate(per_med = ((med/total)*100)) %>%
-  mutate(per_v_high = ((very_high/total)*100)) %>%
-  filter(year > as.Date("2015-01-01"))
+  mutate(per_v_high = ((very_high/total)*100)) 
+  #filter(year > as.Date("2015-01-01"))
 
 priority_year_grouping_incident
 ```
@@ -234,37 +279,48 @@ priority_year_grouping_incident
 
 ###incident: property crimes
 
-```{r}
-chief_approved_incident_property <- full_incidents_pd_approved %>%
+** DELETE **
+
+chief_approved_incident_property <- full_offenses_pd_approved %>%
   ungroup() %>%
-  select(-desc_clean, -class, -nibr, -type, -ucr, -priority, -officer, -incident_month, -address_clean, -value_clean)
+  select(-desc_clean, -officer, -incident_month, -address_clean, -value_clean) %>%
+  distinct()
 
 chief_approved_incident_property
-```
 
-```{r}
+
+
 incident_num_prop <- chief_approved_incident_property %>%
   group_by(incident_num) %>%
   tally() %>%
   rename(count_incident_num = n)
 
 chief_approved_incident_property <- chief_approved_incident_property %>%
-  inner_join(incident_num, by = "incident_num") 
+  inner_join(incident_num, by = "incident_num") %>%
+  select(-count_incident_num.x, -count_incident_num.y)
 
-```
+chief_approved_incident_property
+
+
+** DELETE **
+
 
 
 ```{r}
-prep_by_incident_prop <- chief_approved_incident_property %>%
+prep_by_incident_prop <- full_offenses_pd_approved %>%
   #filter(count_incident_num >1) %>%
   group_by(incident_num, property_crime) %>%
   tally() %>%
   pivot_wider(values_from = n, names_from = property_crime) %>%
+  ungroup() %>%
   mutate_all(~replace(., is.na(.), 0))
-  
 
 prep_by_incident_prop
 ```
+  
+
+
+
 
 
 ```{r}
@@ -280,6 +336,7 @@ incident_real_property <- prep_by_incident_prop %>%
 
 incident_real_property
 ```
+
 ```{r}
 check_incident_real_property <- incident_real_property %>%
   filter(N >1 & Y>1) %>%
@@ -292,14 +349,17 @@ check_incident_real_property
 
 
 ```{r}
-final_chief_approved_by_incident_prop <- chief_approved_incident_property %>%
-  select(-property_crime) %>%
+final_chief_approved_by_incident_prop <- full_offenses_pd_approved %>%
+  ungroup() %>%
+  select(-desc_clean, -property_crime, -officer, -incident_month, -address_clean, -value_clean, -priority) %>%
   distinct() %>%
   inner_join(incident_real_property, by = "incident_num") %>%
-  select(-Y, -N)
+  distinct()
 
 final_chief_approved_by_incident_prop
 ```
+
+
 
 ```{r}
 incident_property_crime_grouping <- final_chief_approved_by_incident_prop %>%
@@ -309,8 +369,8 @@ incident_property_crime_grouping <- final_chief_approved_by_incident_prop %>%
   clean_names() %>%
   mutate(total = (y+n)) %>%
   mutate(per_yes_property_crime = ((y/total)*100)) %>%
-  mutate(per_not_property_crime = ((n/total)*100)) %>%
-  filter(year > as.Date("2015-01-01"))
+  mutate(per_not_property_crime = ((n/total)*100)) 
+  #filter(year > as.Date("2015-01-01"))
 
 incident_property_crime_grouping
 ```
@@ -318,8 +378,9 @@ incident_property_crime_grouping
 
 ```{r}
 write_csv(year_count, "Data/Exports/year_count.csv")
-write_csv(property_crime_year_grouping, "Data/Exports/property_crime_year_grouping.csv")
-write_csv(priority_year_grouping, "Data/Exports/priority_year_grouping.csv")
+write_csv(year_count_table_view, "Data/Exports/year_count_table_view.csv")
+#write_csv(property_crime_year_grouping, "Data/Exports/property_crime_year_grouping.csv")
+#write_csv(priority_year_grouping, "Data/Exports/priority_year_grouping.csv")
 write_csv(incident_property_crime_grouping, "Data/Exports/incident_property_crime_grouping.csv")
 write_csv(priority_year_grouping_incident, "Data/Exports/priority_year_grouping_incident.csv")
 
