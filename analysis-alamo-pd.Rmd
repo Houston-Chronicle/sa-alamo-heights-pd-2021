@@ -51,6 +51,18 @@ So, I'm going to use it to look at:
 percent of each category of priority of crimes throughout the years
 percent of property crimes throughout the years
 
+
+Quick count of total offenses marked each year: 
+
+```{r}
+total_offenses_by_year <- full_offenses_pd_approved %>%
+  group_by(clean_year) %>%
+  tally()
+
+total_offenses_by_year
+```
+
+
 First, this is just a general analysis of the crimes, what went up, what went down
 
 ```{r}
@@ -59,19 +71,105 @@ year_count <- full_offenses_pd_approved %>%
   tally() %>%
   arrange(clean_year) %>%
   pivot_wider(names_from = "clean_year", values_from = "n") %>%
+  mutate_all(~replace(., is.na(.), 0)) %>%
   mutate(pchange_21_20 = ((y_2021 - y_2020)/y_2020)*100) %>%
-  mutate(pchange_20_19 = ((y_2020 - y_2019)/y_2019)*100) %>%
-  mutate(pchange_19_18 = ((y_2019 - y_2018)/y_2018)*100) %>%
-  mutate(pchange_18_17 = ((y_2018 - y_2017)/y_2017)*100) %>%
-  mutate(pchange_17_16 = ((y_2017 - y_2016)/y_2016)*100) %>%
+  #mutate(pchange_20_19 = ((y_2020 - y_2019)/y_2019)*100) %>%
+  #mutate(pchange_19_18 = ((y_2019 - y_2018)/y_2018)*100) %>%
+  #mutate(pchange_18_17 = ((y_2018 - y_2017)/y_2017)*100) %>%
+  #mutate(pchange_17_16 = ((y_2017 - y_2016)/y_2016)*100) %>%
   arrange(desc(pchange_21_20)) %>%
   mutate(dif_21_20 = abs(y_2021-y_2020)) %>%
-  filter(dif_21_20 > 15) %>%
+  #filter(dif_21_20 > 15) %>%
   #filter(y_2020 >= 20) %>%
-  select(value_clean, pchange_21_20, y_2020, y_2021, pchange_20_19, pchange_19_18, pchange_18_17, pchange_17_16, y_2019, y_2018, y_2017, y_2016, y_2015, y_2014, y_2013, y_2012, y_2011)
+  mutate(perc_of_whole_21 = (y_2021/3159)*100) %>%
+  mutate(perc_of_whole_20 = (y_2020/2294)*100)  %>%
+  mutate(perc_of_whole_19 = (y_2019/3124)*100)  %>%
+  mutate(perc_of_whole_18 = (y_2018/2697)*100)  %>%
+  mutate(perc_of_whole_17 = (y_2017/3293)*100)  %>%
+  mutate(perc_of_whole_16 = (y_2016/3844)*100)  %>%
+  mutate(perc_of_whole_15 = (y_2015/3086)*100)  %>%
+  mutate(perc_of_whole_14 = (y_2014/2872)*100)  %>%
+  mutate(perc_of_whole_13 = (y_2013/2736)*100)  %>%
+  mutate(perc_of_whole_12 = (y_2012/2848)*100)  %>%
+  mutate(perc_of_whole_11 = (y_2011/3074)*100)  %>%
+  arrange(desc(y_2021)) %>%
+  select(value_clean, pchange_21_20, y_2021, y_2020, y_2019, y_2018, y_2017, y_2016, y_2015, y_2014, y_2013, y_2012, y_2011, everything())
 
 year_count
 ```
+
+
+```{r}
+offenses_of_interest <-  year_count %>%
+  filter(grepl("SUSPICIOUS", value_clean) | grepl("ACCIDENT", value_clean)| grepl("OPEN", value_clean)| grepl("BURGLARY", value_clean)| grepl("VEHICLE", value_clean)| grepl("CONSTRUCTION", value_clean)| grepl("DWI", value_clean)| grepl("INTOX", value_clean)| grepl("POSS ", value_clean)| grepl("WEAPON", value_clean)| grepl("NOISE", value_clean)| grepl("ANIMAL", value_clean)| grepl("GRAFFITI", value_clean)| grepl("ASSAULT", value_clean)| grepl("ROBBERY", value_clean)| grepl("STALKING", value_clean)| grepl("MURDER", value_clean)| grepl("WELFARE", value_clean))
+  #filter(grepl("LOUD", value_clean))
+
+offenses_of_interest
+```
+```{r}
+#write_csv(offenses_of_interest, "Data/Exports/april18_offenses_of_interest.csv")
+```
+
+```{r}
+drug_poss <- c("POSS CS", "POSS MARIJU", "POSS / OBTAIN CS SCH III/IV F3", "POSS USE ABUSABLE")
+```
+
+
+```{r}
+group_offenses_of_interest <- offenses_of_interest %>%
+  mutate(group_name = case_when(
+      value_clean == "ASSAULT" |  value_clean == "ASSAULT AGAINST PUBLIC SERVANT" | value_clean == "ASSAULT CAUSES BODILY INJURY" | value_clean == "ASSAULT CAUSES BODILY INJURY:FAMILY MEMBER" | value_clean == "ASSAULT CAUSES BODILY INJURY:FAMILY MEMBER (PRIOR CONV)" | value_clean == "ASSAULT THREAT OR OFFENSIVE TOUCH" | value_clean == "ASSAULT THREAT OR OFFENSIVE TOUCH:FAMILY MEMBER" | value_clean == "ASSAULT/ FAMILY/CHOKING/STRANGULAT ION" ~ "Assault",
+       value_clean == "ACCIDENT INVOLVING DAMAGE TO VEHICLE" | value_clean == "ACCIDENT INVOLVING PERSONAL INJURY OR DEATH" | value_clean == "ACCIDENT MOTOR VEHICLE" ~ "Accident",
+       value_clean == "AGGRAVATED ASSAULT DEADLY WEAPON" | value_clean == "AGGRAVATED ASSAULT DEADLY WEAPON FAMILY MEMBER" | value_clean == "ATT AGGRAVATED ASSAULT PUBLIC SERVANT" | value_clean == "AGGRAVATED ASSAULT DEADLY WEAPON FAMILY MEMBER SERIOUS BODILY INJURY" | value_clean == "AGGRAVATED ASSAULT PUBLIC SERVANT" | value_clean == "AGGRAVATED ASSAULT SBI" ~ "Aggravated Assault",
+      value_clean == "AGGRAVATED SEXUAL ASSAULT" | value_clean == "INDECENT ASSAULT" | value_clean == "SEXUAL ASSAULT" | value_clean == "SEXUAL ASSAULT - STATUTORY RAPE" | value_clean == "SEXUAL ASSAULT ON A CHILD" ~ "Sexual Assault",
+      value_clean == "AGGRAVATED ROBBERY" | value_clean == "ALARM ROBBERY" | value_clean == "ROBBERY" ~ "Robbery",
+      value_clean == "ALARM BURGLARY" | value_clean == "BURGLARY" | value_clean == "BURGLARY COIN OP MACHINE" ~ "Burglary",
+      value_clean == "BURGLARY OF A VEHICLE" | value_clean == "THEFT (OF MOTOR VEHICLE PARTS)" | value_clean == "MOTOR VEHICLE THEFT" | value_clean == "ATT BURGLARY VEHICLE" | value_clean == "THEFT MOTOR VEHICLES" | value_clean == "THEFT OF A MOTOR VEHICLE" | value_clean == "BURGLARY OF A VEHICLE - 2 OR MORE PREV CONVIC" | value_clean == "BURGLARY VEHICLE" ~ "Burglary/Theft of Motor Vehicle/Vehicle Parts",
+      value_clean == "CAPITAL MURDER" | value_clean == "MURDER" ~ "Murder",
+      value_clean == "ANIMAL BITE / SCRATCH CASE" | value_clean == "ANIMAL COMPLAINT" | value_clean == "ANIMAL IMPOUND (NON-COV)" | value_clean == "ANIMAL NUISANCE" | value_clean == "ANIMAL PROGRAM (TNR)" | value_clean == "COV - ANIMAL AT LARGE FELINE (UNALTERED)" | value_clean == "COV - ANIMAL NUISANCE - CHASE PEDESTRIANS BICYCLES OR VEHICLES" | value_clean == "COV - ANIMAL NUISANCE - DAMAGING PROPERTY OF OTHERS" | value_clean == "COV - ANIMAL NUISANCE - DEFECATE ON PROPERTY OF OTHERS" | value_clean == "COV - ANIMAL NUISANCE - DOG FREE OF RESTRAINT" | value_clean == "COV - ANIMAL NUISANCE - LOUD & OBNOXIOUS NOISE" | value_clean == "COV - ANIMAL NUISANCE - MOLEST PASSERBY" | value_clean == "COV - ANIMAL NUISANCE - TRESPASS ONTO PRIVATE PROPERTY" | value_clean == "COV - ANIMAL RESTRICTIONS" | value_clean == "COV - FAIL TO VACCINATE ANIMAL OLDER THAN 4 MONTHS" | value_clean == "COV - OTHER DOMESTIC ANIMALS: RESTRICTIONS" | value_clean == "CRUELTY TO ANIMALS" ~ "Animal-related",
+        value_clean == "COV - NOISE NUISANCE" ~ "Noise",
+        value_clean == "DRIVING WHILE INTOXICATED >= 015 MA" | value_clean == "DRIVING WHILE INTOXICATED 2ND" | value_clean == "DRIVING WHILE INTOXICATED 3RD OR MORE" | value_clean == "DRIVING WHILE INTOXICATED MB" | value_clean == "DRIVING WHILE INTOXICATION WITH CHILD PASSENGER" | value_clean == "DWI (JUVENILE)" | value_clean == "DWI / DUI (INCLUDES MINORS)" ~ "DWI",
+       
+        value_clean == "IMPOUNDED VEHICLE" ~ "Impounded Vehicle",
+        value_clean == "OPEN DOOR / WINDOW" ~ "Open Door/Window",
+        value_clean == "PUBLIC INTOXICATION" ~ "Public Intoxication",
+        value_clean == "STALKING" ~ "Stalking",
+        value_clean == "SUSPICIOUS PERSON / VEHICLE / CIRCUMSTANCES" ~ "Suspicious",
+        value_clean == "UNLAWFULLY CARRYING A WEAPON" | value_clean == "UNLAWFULLY CARRYING A WEAPON (WEAPON FREE ZONE)" | value_clean == "POSSESSION PROHIBITED WEAPON" ~ "Weapon-Issue",
+        value_clean == "WELFARE CHECK" ~ "Welfare Check",
+      value_clean == "COV - AUTHORIZED HOURS OF CONSTRUCTION" ~ "Construction",
+      grepl("GRAFFITI", value_clean) ~ "Graffiti",
+      grepl(paste(drug_poss, collapse="|"), value_clean) ~ "Drug Possession"
+      ))%>%
+  filter(!is.na(group_name)) %>%
+  arrange(group_name)
+
+group_offenses_of_interest
+```
+
+```{r}
+group_offenses_of_interest_sum <- group_offenses_of_interest %>%
+  group_by(group_name) %>%
+  summarise("2011" = sum(y_2011), "2012" = sum(y_2012), "2013" = sum(y_2013), "2014" = sum(y_2014), "2015" = sum(y_2015), "2016" = sum(y_2016), "2017" = sum(y_2017), "2018" = sum(y_2018), "2019" = sum(y_2019), "2020" = sum(y_2020), "2021" = sum(y_2021)) %>%
+  pivot_longer(cols = !group_name, names_to = "year", values_to = "value")
+
+group_offenses_of_interest_sum
+```
+```{r}
+group_offenses_of_interest_sum_2021 <- group_offenses_of_interest_sum %>%
+  filter(year == "2021")
+
+group_offenses_of_interest_sum_2021
+```
+
+
+```{r}
+write_csv(group_offenses_of_interest_sum, "Data/Exports/april18_sum_group_offenses_of_interest.csv")
+write_csv(group_offenses_of_interest_sum_2021, "Data/Exports/april21_group_offenses_of_interest_sum_2021.csv")
+```
+
+
+
 ```{r}
 year_count_table_view <- full_offenses_pd_approved %>%
   group_by(value_clean, clean_year) %>%
